@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ReachingLocationTask" format=3 uid="uid://c7xbh0bt0tla0"]
+
+[ext_resource type="Resource" uid="uid://hckmtw24ybvk" path="res://locations/TrainStations/GehennaStation.tres" id="1_03g8y"]
+[ext_resource type="Script" uid="uid://bs85oiiu7jwbs" path="res://types/Tasks/ReachingLocationTask.cs" id="1_pwgrg"]
+[ext_resource type="Resource" uid="uid://6jrydnefgaha" path="res://Tasks/ReachingLocation/2-CargoStation.tres" id="2_e5lri"]
+
+[resource]
+script = ExtResource("1_pwgrg")
+Location = ExtResource("1_03g8y")
+TaskNumber = 1
+Title = "Take the pills and reach Gehenna Station"
+Description = "Congratulation to your promotion into our project. This is your first take. Please follow the instructions precisely. 
+
+1. Take the pills from the First Aid Cabinet
+2. Read the manuals and make yourself familiar with the train.
+3. Reach Gehenna Station
+
+Don't forget about taking the pills."
+NextTask = ExtResource("2_e5lri")
+metadata/_custom_type_script = "uid://bs85oiiu7jwbs"

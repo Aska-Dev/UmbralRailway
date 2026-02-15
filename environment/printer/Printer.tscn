@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://5wteaxtxfjch"]
+
+[ext_resource type="PackedScene" uid="uid://bdv41s63ulix1" path="res://assets/objects/computer/printer.tscn" id="1_x7i2q"]
+[ext_resource type="Script" uid="uid://c00yh71wsinf2" path="res://environment/printer/Printer.cs" id="1_xugjs"]
+[ext_resource type="PackedScene" uid="uid://c84lha4gl0vda" path="res://assets/objects/PaperAndBooks/note_1.glb" id="2_76ru3"]
+[ext_resource type="AudioStream" uid="uid://dcfn63jhvft33" path="res://assets/sounds/computer/printer.mp3" id="3_52b40"]
+
+[sub_resource type="Animation" id="Animation_76ru3"]
+resource_name = "Print"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("note_12:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.019927502, -0.14430404, 0.009435862), Vector3(0.7074787, -0.14430404, 0.009435862)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("note_12:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0009999999, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_52b40"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("note_12:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.019927502, -0.14430404, 0.009435862)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("note_12:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_52b40"]
+_data = {
+&"Print": SubResource("Animation_76ru3"),
+&"RESET": SubResource("Animation_52b40")
+}
+
+[node name="Printer" type="Node3D" unique_id=1390301473]
+script = ExtResource("1_xugjs")
+
+[node name="Printer" parent="." unique_id=1629656746 instance=ExtResource("1_x7i2q")]
+
+[node name="note_12" parent="." unique_id=1810176992 instance=ExtResource("2_76ru3")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -0.019927502, -0.14430404, 0.009435862)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=990419166]
+libraries/ = SubResource("AnimationLibrary_52b40")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1461486409]
+stream = ExtResource("3_52b40")
+max_db = 0.0

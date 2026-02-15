@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bmuucr6cx3cpt"]
+
+[ext_resource type="Script" uid="uid://dimcqujabi1cf" path="res://environment/Note/Note.cs" id="1_stvp1"]
+[ext_resource type="PackedScene" uid="uid://c84lha4gl0vda" path="res://assets/objects/PaperAndBooks/note_1.glb" id="2_ro8p7"]
+[ext_resource type="Script" uid="uid://df54utlaa5rxv" path="res://components/InteractionComponent.cs" id="3_vl3mh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x1d7c"]
+size = Vector3(0.22961426, 0.01574707, 0.30618286)
+
+[node name="Note" type="StaticBody3D" unique_id=1499434902]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_stvp1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1512458165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032348633, 0.0015158206, 0.0012969971)
+shape = SubResource("BoxShape3D_x1d7c")
+
+[node name="note_12" parent="." unique_id=1810176992 instance=ExtResource("2_ro8p7")]
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=454598421]
+script = ExtResource("3_vl3mh")
+InteractionMessage = "Press [F] to read"
+metadata/_custom_type_script = "uid://df54utlaa5rxv"
+
+[connection signal="OnInteraction" from="InteractionComponent" to="." method="OnInteract"]

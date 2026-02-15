@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cjkg5u7ofj0b"]
+
+[ext_resource type="Script" uid="uid://dkroi4q846pqt" path="res://locations/LocationRegistry.cs" id="1_iskpr"]
+
+[node name="LocationRegistry" type="Node" unique_id=1769974258]
+script = ExtResource("1_iskpr")

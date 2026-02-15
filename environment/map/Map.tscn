@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cyvlbtna587ix"]
+
+[ext_resource type="Texture2D" uid="uid://dsr51a7yw0i4p" path="res://assets/objects/map/a.png" id="1_0vfmq"]
+[ext_resource type="Script" uid="uid://bfmqmn50waca8" path="res://environment/map/Map.cs" id="1_nw5ev"]
+[ext_resource type="Script" uid="uid://df54utlaa5rxv" path="res://components/InteractionComponent.cs" id="3_h0idj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8acu"]
+albedo_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
+albedo_texture = ExtResource("1_0vfmq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nw5ev"]
+size = Vector2(1, 0.8)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0vfmq"]
+data = PackedVector3Array(0.5, 0, 0.39999998, -0.5, 0, 0.39999998, 0.5, 0, -0.39999998, -0.5, 0, 0.39999998, -0.5, 0, -0.39999998, 0.5, 0, -0.39999998)
+
+[node name="Map" type="StaticBody3D" unique_id=284100825]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_nw5ev")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1378046629]
+material_override = SubResource("StandardMaterial3D_x8acu")
+mesh = SubResource("PlaneMesh_nw5ev")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1709645938]
+shape = SubResource("ConcavePolygonShape3D_0vfmq")
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=2118430481]
+script = ExtResource("3_h0idj")
+InteractionMessage = "Press [F] to look at the map"
+metadata/_custom_type_script = "uid://df54utlaa5rxv"

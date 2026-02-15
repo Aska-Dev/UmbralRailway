@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://b0ebrgkyg7dfo"]
+
+[ext_resource type="PackedScene" uid="uid://d1r314rbvpewq" path="res://assets/objects/computer/computer_1.fbx" id="1_4e5ww"]
+[ext_resource type="Script" uid="uid://8pl25qpxp245" path="res://environment/computer/Computer.cs" id="1_5f6yd"]
+[ext_resource type="Script" uid="uid://df54utlaa5rxv" path="res://components/InteractionComponent.cs" id="3_ax446"]
+[ext_resource type="PackedScene" uid="uid://dc575d50t4lp1" path="res://assets/objects/computer/floppy_disc_2.glb" id="4_ax446"]
+[ext_resource type="AudioStream" uid="uid://c8tixym1ikcim" path="res://assets/sounds/computer/disk.mp3" id="5_bo4p5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aeynn"]
+size = Vector3(0.59936523, 0.7816162, 0.8267212)
+
+[sub_resource type="Animation" id="Animation_peeym"]
+resource_name = "EjectDisk"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floppy_disc_22:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("floppy_disc_22:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.15442018, 0.23176003, 0.38920182), Vector3(0.15442018, 0.23176003, 0.6354923)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("floppy_disc_22:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.25987953, 0), Vector3(0, -0.25987953, 0), Vector3(1.0887411, -0.58749574, -0.5330694)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ax446"]
+resource_name = "InputDisk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floppy_disc_22:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("floppy_disc_22:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.15442018, 0.23176003, 0.6367105), Vector3(0.15442018, 0.23176003, 0.3710075)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("floppy_disc_22:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.25987953, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bo4p5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floppy_disc_22:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.15442018, 0.23176003, 0.3710075)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("floppy_disc_22:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("floppy_disc_22:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.25987953, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bo4p5"]
+_data = {
+&"EjectDisk": SubResource("Animation_peeym"),
+&"InputDisk": SubResource("Animation_ax446"),
+&"RESET": SubResource("Animation_bo4p5")
+}
+
+[node name="Computer" type="StaticBody3D" unique_id=765895556]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_5f6yd")
+
+[node name="computer_1" parent="." unique_id=1481966234 instance=ExtResource("1_4e5ww")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=799440211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003540039, 0.39093018, 0.4041443)
+shape = SubResource("BoxShape3D_aeynn")
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=1262203067]
+script = ExtResource("3_ax446")
+InteractionMessage = "Press [F] to use the computer"
+metadata/_custom_type_script = "uid://df54utlaa5rxv"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1996522433]
+libraries/ = SubResource("AnimationLibrary_bo4p5")
+
+[node name="floppy_disc_22" parent="." unique_id=1844987488 instance=ExtResource("4_ax446")]
+transform = Transform3D(0.9664209, 0, -0.2569641, 0, 1.0000001, 0, 0.2569641, 0, 0.9664209, 0.15442018, 0.23176003, 0.3710075)
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1319804369]
+stream = ExtResource("5_bo4p5")
+
+[connection signal="OnInteraction" from="InteractionComponent" to="." method="OnInteract"]

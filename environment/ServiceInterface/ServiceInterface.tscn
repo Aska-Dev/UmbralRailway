@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://3lmwlclamvk5"]
+
+[ext_resource type="Texture2D" uid="uid://bv8budm08hmt0" path="res://assets/textures/metal_floor_tx_1.png" id="1_8hffo"]
+[ext_resource type="Script" uid="uid://oolhq7emtj64" path="res://environment/ServiceInterface/ServiceInterface.cs" id="1_jkw4h"]
+[ext_resource type="PackedScene" uid="uid://dtax117hodv2i" path="res://assets/objects/StationInterface/screen/screen_etx_1_partial.glb" id="2_viil3"]
+[ext_resource type="PackedScene" uid="uid://borxnnlf0d85u" path="res://assets/objects/StationInterface/capacitor_etx_6.glb" id="3_tkkp8"]
+[ext_resource type="PackedScene" uid="uid://utxwli5ojar4" path="res://assets/objects/StationInterface/capacitor_etx_6_1.glb" id="4_a5klk"]
+[ext_resource type="PackedScene" uid="uid://dquetfd5n6l57" path="res://assets/objects/StationInterface/circuit_board_etx_1.glb" id="5_a5klk"]
+[ext_resource type="PackedScene" uid="uid://bgf44eso7rqo2" path="res://assets/objects/StationInterface/power_supply_1.glb" id="6_5q4wo"]
+[ext_resource type="PackedScene" uid="uid://qukrj7w5evxi" path="res://assets/objects/StationInterface/pcb_2.glb" id="7_mwq0p"]
+[ext_resource type="PackedScene" uid="uid://ceqadm05ui2da" path="res://assets/objects/StationInterface/capacitor_etx_5.glb" id="8_pmhn4"]
+[ext_resource type="PackedScene" uid="uid://nxe86o1co2e0" path="res://assets/objects/StationInterface/data_block_etx_1.glb" id="9_a6bfg"]
+[ext_resource type="PackedScene" uid="uid://diejxvn0nocsu" path="res://assets/objects/StationInterface/buttons_etx_black_3.glb" id="10_bmh5t"]
+[ext_resource type="PackedScene" uid="uid://buq7ehmmsjtmg" path="res://assets/objects/StationInterface/buttons_etx_blue_1.glb" id="11_b4kfq"]
+[ext_resource type="PackedScene" uid="uid://dopm23r7jrjub" path="res://assets/objects/StationInterface/button_etx_green_1.glb" id="12_witsn"]
+[ext_resource type="Script" uid="uid://df54utlaa5rxv" path="res://components/InteractionComponent.cs" id="13_u4wr4"]
+[ext_resource type="AudioStream" uid="uid://boks6kr4qga8c" path="res://assets/sounds/lever and clanks/buttonPress.mp3" id="15_ignws"]
+[ext_resource type="AudioStream" uid="uid://pev7slcwl10n" path="res://assets/sounds/computer/computerError.mp3" id="16_ynbjl"]
+[ext_resource type="AudioStream" uid="uid://cl1xrrrbryp78" path="res://assets/sounds/computer/computerWorking.mp3" id="17_ynbjl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_viil3"]
+albedo_texture = ExtResource("1_8hffo")
+uv1_triplanar = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_s5qr8"]
+material = SubResource("StandardMaterial3D_viil3")
+size = Vector3(1, 1, 1.5)
+
+[sub_resource type="SystemFont" id="SystemFont_witsn"]
+font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_u4wr4"]
+font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_jkw4h"]
+font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_witsn"]
+size = Vector3(1.1080933, 0.21160889, 1.512764)
+
+[node name="ServiceInterface" type="StaticBody3D" unique_id=1108405409]
+collision_layer = 3
+script = ExtResource("1_jkw4h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=550360763]
+transform = Transform3D(-0.03646928, 0.99933475, 0, -0.99933475, -0.03646928, 0, 0, 0, 1, 0, 0.025485128, 0)
+mesh = SubResource("PrismMesh_s5qr8")
+
+[node name="screen_etx_1_partial2" parent="." unique_id=1671734186 instance=ExtResource("2_viil3")]
+transform = Transform3D(-6.556708e-08, -1.2990382, 0.74999994, 0, 0.74999994, 1.2990382, -1.5, 5.678276e-08, -3.278354e-08, -0.089, 0.185, 0)
+
+[node name="capacitor_etx_62" parent="." unique_id=321081176 instance=ExtResource("3_tkkp8")]
+transform = Transform3D(1.0392305, 0.6, 0, -0.6, 1.0392305, 0, 0, 0, 1.2, -0.3396558, 0.46360272, 0.40719882)
+
+[node name="capacitor_etx_6_12" parent="." unique_id=248705694 instance=ExtResource("4_a5klk")]
+transform = Transform3D(1.0392305, 0.6, 0, -0.6, 1.0392305, 0, 0, 0, 1.2, -0.12688568, 0.34953862, 0.60125226)
+
+[node name="circuit_board_etx_12" parent="." unique_id=1699596726 instance=ExtResource("5_a5klk")]
+transform = Transform3D(-4.3711385e-08, 0.49999994, 0.8660254, 0, 0.86602527, -0.5, -0.99999994, -2.1855692e-08, -3.7855173e-08, -0.27613735, 0.43664372, 0.5030992)
+
+[node name="power_supply_12" parent="." unique_id=1319266411 instance=ExtResource("6_5q4wo")]
+transform = Transform3D(0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 0, 0, 1, -0.35927975, 0.3379448, -0.5103065)
+
+[node name="pcb_22" parent="." unique_id=1873746116 instance=ExtResource("7_mwq0p")]
+transform = Transform3D(0.7639278, 0.69002074, 1.0910021, -0.3957796, 1.3318676, -0.56523204, -1.228728, 8.940697e-08, 0.8603647, -0.12403225, 0.3557468, -0.6027546)
+
+[node name="capacitor_etx_52" parent="." unique_id=1794276225 instance=ExtResource("8_pmhn4")]
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, -0.19225325, 0.40862843, -0.34617424)
+
+[node name="data_block_etx_12" parent="." unique_id=159243566 instance=ExtResource("9_a6bfg")]
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, 0.074992746, 0.25963345, 0.3207449)
+
+[node name="buttons_etx_black_32" parent="." unique_id=1970323010 instance=ExtResource("10_bmh5t")]
+transform = Transform3D(1.053379, -6.409009e-09, 0.574798, -0.574798, -2.5125217e-08, 1.053379, 6.409009e-09, -1.2, -2.5125217e-08, 0.14172998, 0.19102226, 0.5620212)
+
+[node name="buttons_etx_blue_12" parent="." unique_id=1508776891 instance=ExtResource("11_b4kfq")]
+transform = Transform3D(1.2141302, -8.124626e-09, 0.69705665, -0.69705665, -3.0469312e-08, 1.2141302, 8.124626e-09, -1.4, -3.0469312e-08, 0.36408114, 0.07153486, 0.14240757)
+
+[node name="button_etx_green_12" parent="." unique_id=1008290303 instance=ExtResource("12_witsn")]
+transform = Transform3D(-4.3704677e-08, -0.8746536, 0.4847485, -7.659184e-10, 0.4847485, 0.8746536, -1, 3.7855173e-08, -2.1855692e-08, 0.34563872, 0.041117936, -0.19858006)
+
+[node name="Title" type="Label3D" parent="." unique_id=221828954]
+transform = Transform3D(-4.371139e-08, -0.86602545, 0.49999997, 0, 0.49999997, 0.86602545, -1, 3.7855173e-08, -2.1855692e-08, -0.07408596, 0.3941146, 0)
+pixel_size = 0.001
+modulate = Color(0.8646751, 0.86467516, 0.8646751, 1)
+text = "No Connection"
+font = SubResource("SystemFont_witsn")
+font_size = 20
+outline_size = 0
+
+[node name="SelectedService" type="Label3D" parent="." unique_id=1751490216]
+transform = Transform3D(-4.371139e-08, -0.86602545, 0.49999997, 0, 0.49999997, 0.86602545, -1, 3.7855173e-08, -2.1855692e-08, 0.013939999, 0.36859673, 0)
+pixel_size = 0.001
+modulate = Color(0.82606, 0.82606006, 0.82606, 1)
+text = "N/A"
+font = SubResource("SystemFont_u4wr4")
+font_size = 45
+outline_size = 0
+
+[node name="Note" type="Label3D" parent="." unique_id=383426304]
+transform = Transform3D(-4.1587768e-08, -0.66999924, 0.7423618, 1.3458941e-08, 0.7423618, 0.66999924, -1, 3.7855173e-08, -2.1855692e-08, 0.09101029, 0.30918235, 0)
+pixel_size = 0.001
+modulate = Color(1, 0, 0, 1)
+text = "Please connect to a valid network."
+font = SubResource("SystemFont_jkw4h")
+font_size = 20
+outline_size = 0
+autowrap_mode = 2
+width = 390.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=818934961]
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, -0.0062827766, 0.23905687, 0.0024604797)
+shape = SubResource("BoxShape3D_witsn")
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=111718334]
+script = ExtResource("13_u4wr4")
+InteractionMessage = "Press [F] to interact with service interface"
+metadata/_custom_type_script = "uid://df54utlaa5rxv"
+
+[node name="PressSound" type="AudioStreamPlayer" parent="." unique_id=12119532]
+stream = ExtResource("15_ignws")
+volume_db = -10.0
+max_polyphony = 3
+
+[node name="ErrorSound" type="AudioStreamPlayer" parent="." unique_id=131162383]
+stream = ExtResource("16_ynbjl")
+volume_db = -10.0
+
+[node name="WorkingSound" type="AudioStreamPlayer3D" parent="." unique_id=1192936642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007552445, 0)
+stream = ExtResource("17_ynbjl")
+unit_size = 5.0
+max_db = -8.0
+
+[connection signal="OnInteraction" from="InteractionComponent" to="." method="Enable"]

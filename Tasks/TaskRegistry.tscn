@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cgpqtsfeyhhpm"]
+
+[ext_resource type="Script" uid="uid://cl4q3uiw2k2ak" path="res://Tasks/TaskRegistry.cs" id="1_yuwyy"]
+
+[node name="TaskRegistry" type="Node" unique_id=1823625217]
+script = ExtResource("1_yuwyy")

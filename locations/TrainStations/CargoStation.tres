@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="TrainStation" format=3 uid="uid://ddk6fccs7ogu8"]
+
+[ext_resource type="Script" uid="uid://bw85wepeibe3y" path="res://types/StationData.cs" id="1_i3jf0"]
+[ext_resource type="Script" uid="uid://bo18mdvddq0bs" path="res://types/StationServices/ShuntingCrane.cs" id="1_iyuqf"]
+[ext_resource type="Script" uid="uid://cuoiqxvvlibbn" path="res://types/Locations/TrainStation.cs" id="1_r2aq7"]
+[ext_resource type="Script" uid="uid://11crlnenwxph" path="res://types/Locations/Neighbour.cs" id="2_b1v5u"]
+
+[sub_resource type="Resource" id="Resource_1siu7"]
+script = ExtResource("1_iyuqf")
+metadata/_custom_type_script = "uid://bo18mdvddq0bs"
+
+[sub_resource type="Resource" id="Resource_g12ms"]
+script = ExtResource("1_iyuqf")
+metadata/_custom_type_script = "uid://bo18mdvddq0bs"
+
+[sub_resource type="Resource" id="Resource_xdwwy"]
+script = ExtResource("1_iyuqf")
+HasPower = false
+IsFunctional = false
+metadata/_custom_type_script = "uid://bo18mdvddq0bs"
+
+[sub_resource type="Resource" id="Resource_b1v5u"]
+script = ExtResource("1_i3jf0")
+Temperature = -162
+WorkingPowerGenerators = 2
+Services = [SubResource("Resource_1siu7"), SubResource("Resource_g12ms"), SubResource("Resource_xdwwy")]
+metadata/_custom_type_script = "uid://bw85wepeibe3y"
+
+[sub_resource type="Resource" id="Resource_iyuqf"]
+script = ExtResource("2_b1v5u")
+LocationId = &"Station.A"
+Distance = 1000
+Direction = 2
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[sub_resource type="Resource" id="Resource_s416y"]
+script = ExtResource("2_b1v5u")
+LocationId = &"JunctionBCD"
+Distance = 1000
+Direction = 1
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[resource]
+script = ExtResource("1_r2aq7")
+Name = "Cargo Station"
+Id = "cg00"
+Data = SubResource("Resource_b1v5u")
+LocationId = &"Station.B"
+Neighbours = [SubResource("Resource_iyuqf"), SubResource("Resource_s416y")]
+metadata/_custom_type_script = "uid://cuoiqxvvlibbn"

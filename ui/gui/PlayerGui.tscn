@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c43cfefgsv4ka"]
+
+[ext_resource type="Script" uid="uid://cp67y2t7cfpev" path="res://ui/gui/PlayerGui.cs" id="1_cboxj"]
+
+[sub_resource type="SystemFont" id="SystemFont_cboxj"]
+font_names = PackedStringArray("Consolas")
+font_weight = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_oec2f"]
+font = SubResource("SystemFont_cboxj")
+font_color = Color(0.85, 0.85, 0.85, 1)
+
+[node name="PlayerGui" type="Control" unique_id=150387306]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cboxj")
+
+[node name="InteractionMessageLabel" type="Label" parent="." unique_id=74831501]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 178.0
+offset_right = 58.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_oec2f")
+
+[node name="HintLabel" type="Label" parent="." unique_id=290493053]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -549.0
+offset_top = -239.0
+offset_right = -57.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_oec2f")
+autowrap_mode = 2

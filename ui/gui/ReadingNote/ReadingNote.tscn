@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cddmrwb30duiy"]
+
+[ext_resource type="Texture2D" uid="uid://bwv5hcs6tqpjc" path="res://assets/objects/PaperAndBooks/note_1_note_1.png" id="1_lmipg"]
+[ext_resource type="Script" uid="uid://cnggyow0u50ju" path="res://ui/gui/ReadingNote/ReadingNote.cs" id="1_tu4yg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vviwv"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 5
+
+[sub_resource type="SystemFont" id="SystemFont_lmipg"]
+font_names = PackedStringArray("Consolas")
+font_weight = 550
+msdf_pixel_range = 32
+oversampling = 5.0
+
+[sub_resource type="SystemFont" id="SystemFont_pesrm"]
+font_names = PackedStringArray("Consolas")
+font_weight = 550
+msdf_pixel_range = 32
+oversampling = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_tu4yg"]
+font = SubResource("SystemFont_pesrm")
+font_size = 18
+font_color = Color(0.1882353, 0.13333334, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_tu4yg"]
+font_names = PackedStringArray("Consolas")
+msdf_pixel_range = 32
+oversampling = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_pesrm"]
+font = SubResource("SystemFont_tu4yg")
+font_size = 18
+font_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ReadingNote" type="Control" unique_id=169485695]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tu4yg")
+
+[node name="Panel" type="Panel" parent="." unique_id=340925237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vviwv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=762265754]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lmipg")
+
+[node name="Content" type="RichTextLabel" parent="." unique_id=31055510]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -227.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.18958399, 0.1350826, 0.0010689478, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_lmipg")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Welcome employee to your first day!
+
+Please refeer to the manual for any questions. "
+fit_content = true
+scroll_active = false
+
+[node name="Title" type="Label" parent="." unique_id=1661252373]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 60.0
+offset_right = 743.0
+offset_bottom = 83.0
+label_settings = SubResource("LabelSettings_tu4yg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HowToCloseIt" type="Label" parent="." unique_id=871668484]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 576.0
+offset_right = 743.0
+offset_bottom = 599.0
+text = "Press [ESC] or [F] to close"
+label_settings = SubResource("LabelSettings_pesrm")
+horizontal_alignment = 1
+vertical_alignment = 1

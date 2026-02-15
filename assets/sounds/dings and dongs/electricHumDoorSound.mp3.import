@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5ae62y02m0ai"
+path="res://.godot/imported/electricHumDoorSound.mp3-603a4041e3d900a7dbb1d52111ab790a.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/dings and dongs/electricHumDoorSound.mp3"
+dest_files=["res://.godot/imported/electricHumDoorSound.mp3-603a4041e3d900a7dbb1d52111ab790a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

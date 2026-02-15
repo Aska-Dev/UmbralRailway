@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bc8rn1mpp3uv2"]
+
+[ext_resource type="Script" uid="uid://d4k2jj2o05cud" path="res://environment/manuals/Manuals.cs" id="1_dxj5i"]
+[ext_resource type="PackedScene" uid="uid://0d2khkm5wa3r" path="res://assets/objects/file_binder/file_binder.glb" id="1_nols5"]
+[ext_resource type="PackedScene" uid="uid://dvviuhffjdhdy" path="res://assets/objects/file_binder/file_binder_alt2.glb" id="2_2c4li"]
+[ext_resource type="PackedScene" uid="uid://cghnoui4jumf7" path="res://assets/objects/file_binder/file_binder_alt.glb" id="3_1gmpr"]
+[ext_resource type="PackedScene" uid="uid://3i3rc34tqgtb" path="res://assets/objects/file_binder/file_binder_alt4.glb" id="4_2c4li"]
+[ext_resource type="Script" uid="uid://df54utlaa5rxv" path="res://components/InteractionComponent.cs" id="5_1gmpr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2c4li"]
+size = Vector3(0.8939209, 0.43078613, 0.32232666)
+
+[node name="Manuals" type="StaticBody3D" unique_id=1603616675]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_dxj5i")
+
+[node name="file_binder2" parent="." unique_id=104844639 instance=ExtResource("1_nols5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0026210696, 0, 0)
+
+[node name="file_binder_alt22" parent="." unique_id=2136903522 instance=ExtResource("2_2c4li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09316817, 0, 0)
+
+[node name="file_binder_alt2" parent="." unique_id=844033266 instance=ExtResource("3_1gmpr")]
+transform = Transform3D(0.961175, -0.27593935, 0, 0.27593935, 0.961175, 0, 0, 0, 1, 0.29640123, 0.013132021, 0)
+
+[node name="file_binder_alt42" parent="." unique_id=65174675 instance=ExtResource("4_2c4li")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.4112733, 0.04682696, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=493819077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3932495, 0.21514893, 0.01083374)
+shape = SubResource("BoxShape3D_2c4li")
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=1135576440]
+script = ExtResource("5_1gmpr")
+InteractionMessage = "Press [F] to read the manuals"
+metadata/_custom_type_script = "uid://df54utlaa5rxv"
+
+[connection signal="OnInteraction" from="InteractionComponent" to="." method="OnInteract"]

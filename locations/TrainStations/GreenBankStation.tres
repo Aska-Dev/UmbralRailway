@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="TrainStation" format=3 uid="uid://dxkwft2q1wf7b"]
+
+[ext_resource type="Script" uid="uid://bw85wepeibe3y" path="res://types/StationData.cs" id="1_74jel"]
+[ext_resource type="Script" uid="uid://cuoiqxvvlibbn" path="res://types/Locations/TrainStation.cs" id="1_k0tqn"]
+[ext_resource type="Script" uid="uid://11crlnenwxph" path="res://types/Locations/Neighbour.cs" id="2_pmlxf"]
+
+[sub_resource type="Resource" id="Resource_pmlxf"]
+script = ExtResource("1_74jel")
+Temperature = -98
+TemperatureSensorWorking = false
+WorkingPowerGenerators = 2
+metadata/_custom_type_script = "uid://bw85wepeibe3y"
+
+[sub_resource type="Resource" id="Resource_3dabb"]
+script = ExtResource("2_pmlxf")
+LocationId = &"JunctionBCD"
+Distance = 1500
+Direction = 3
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[resource]
+script = ExtResource("1_k0tqn")
+Name = "Green Bank Station"
+Id = "saTx"
+Data = SubResource("Resource_pmlxf")
+LocationId = &"Station.C"
+Neighbours = [SubResource("Resource_3dabb")]
+metadata/_custom_type_script = "uid://cuoiqxvvlibbn"

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+	"ToxicRails": {
+	  "commandName": "Project",
+	  "remoteDebugEnabled": false
+	}
+  }
+}

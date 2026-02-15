@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://deq118j1u3h8g"]
+
+[ext_resource type="Shader" uid="uid://dauddhh1ccpfj" path="res://shader/shader.gdshader" id="1_ndkk7"]
+[ext_resource type="PackedScene" uid="uid://c43cfefgsv4ka" path="res://ui/gui/PlayerGui.tscn" id="2_ewlw8"]
+[ext_resource type="PackedScene" uid="uid://djbulpppia5ml" path="res://maps/T41/T41.tscn" id="2_rp3b2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rp3b2"]
+shader = ExtResource("1_ndkk7")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 16
+shader_parameter/dither_size = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" unique_id=622197832]
+material = SubResource("ShaderMaterial_rp3b2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1780477248]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="T41" parent="SubViewport" unique_id=755960101 instance=ExtResource("2_rp3b2")]
+
+[node name="GUI" type="CanvasLayer" parent="SubViewport" unique_id=1579145146]
+
+[node name="PlayerGui" parent="SubViewport/GUI" unique_id=150387306 instance=ExtResource("2_ewlw8")]
+mouse_filter = 2

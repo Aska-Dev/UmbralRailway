@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="TrainStation" format=3 uid="uid://hckmtw24ybvk"]
+
+[ext_resource type="Script" uid="uid://bw85wepeibe3y" path="res://types/StationData.cs" id="1_a7lhq"]
+[ext_resource type="Script" uid="uid://11crlnenwxph" path="res://types/Locations/Neighbour.cs" id="1_oio5d"]
+[ext_resource type="Script" uid="uid://cuoiqxvvlibbn" path="res://types/Locations/TrainStation.cs" id="1_tt0fh"]
+
+[sub_resource type="Resource" id="Resource_ndvdt"]
+script = ExtResource("1_a7lhq")
+Temperature = -148
+WorkingPowerGenerators = 3
+LatestLog = "### Station Log ###
+Date: N/A
+Executive staff: [AUTOMATICALLY GENERATED LOG]
+
+[EVENT: STATION_ABANDONMENT_PROCEDURE_001]
+[SOURCE: AUTO_EMERGENCY_SCRIPT_v4.2]
+
+// ACTION: INITIATING_DEEP_SLEEP_PROTOCOL
+
+--------------------------------------------------
+[SYSTEM_RECONFIGURATION_STATUS]
+--------------------------------------------------
+LIFE_SUPPORT:   [SHUTDOWN] -> 0.0% Pwr
+HEATING_ARRAY:  [SHUTDOWN] -> 0.0% Pwr
+INTERIOR_LIGHT: [OFF]      -> 0.0% Pwr
+AIR_FILTRATION: [DORMANT]  -> 0.0% Pwr
+--------------------------------------------------
+NOTE: ALL HABITABLE ZONES DE-CLASSIFIED.
+OXYGEN LEVELS: CRITICAL_IGNORE (Override: 0_PEOPLE)
+--------------------------------------------------
+
+// PRIORITY_REALLOCATION...
+[INFRASTRUCTURE_MAINTENANCE]: [ACTIVE] -> 60.0% Pwr
+[PERIMETER_SECURITY]:        [ACTIVE] -> 40.0% Pwr
+[HULL_INTEGRITY_SCANNER]:    [ACTIVE] -> HIGH_PRIORITY
+
+--------------------------------------------------
+[COMMUNICATION_STATUS]
+--------------------------------------------------
+MISSION_CONTROL_UPLINK:  [POLLING...]
+........................ [TIMEOUT]
+........................ [TIMEOUT]
+ERROR: NO_HANDSHAKE_RECEIVED
+STATUS: RADIO_ISOLATION_ACTIVE
+NOTICE: THE STATION IS NO LONGER LISTENING.
+--------------------------------------------------
+
+[PROCESS_COMPLETE]
+[SCRIPT_TERMINATED]
+[SYSTEM_IDLE]"
+metadata/_custom_type_script = "uid://bw85wepeibe3y"
+
+[sub_resource type="Resource" id="Resource_yixol"]
+script = ExtResource("1_oio5d")
+LocationId = &"Station.B"
+Distance = 750
+Direction = 1
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[resource]
+script = ExtResource("1_tt0fh")
+Name = "Gehenna Station"
+Id = "gh#4"
+Data = SubResource("Resource_ndvdt")
+LocationId = &"Station.A"
+Neighbours = [SubResource("Resource_yixol")]
+metadata/_custom_type_script = "uid://cuoiqxvvlibbn"

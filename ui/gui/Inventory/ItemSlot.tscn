@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://e58p5ubnoy5e"]
+
+[ext_resource type="Script" uid="uid://csdv6tm1u8u2t" path="res://ui/gui/Inventory/ItemSlot.cs" id="1_bjrkj"]
+[ext_resource type="Texture2D" uid="uid://c68rg024y2x06" path="res://items/models/FloppyDisk/FloppyDiscIcon.png" id="1_cx8fs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx8fs"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.73, 0.73, 0.73, 1)
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+
+[node name="ItemSlot" type="Control" unique_id=1075556163]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
+script = ExtResource("1_bjrkj")
+
+[node name="SlotBorder" type="Panel" parent="." unique_id=1827764241]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cx8fs")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1659409471]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_cx8fs")
+
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

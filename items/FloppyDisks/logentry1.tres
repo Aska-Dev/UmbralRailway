@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="FloppyDisk" format=3 uid="uid://b6ex2odivrckc"]
+
+[ext_resource type="Texture2D" uid="uid://c68rg024y2x06" path="res://items/models/FloppyDisk/FloppyDiscIcon.png" id="1_72sm1"]
+[ext_resource type="Script" uid="uid://b8b2lfphfqpg6" path="res://types/items/FloppyDisk.cs" id="1_ev3sf"]
+[ext_resource type="PackedScene" uid="uid://clq3gke5iisam" path="res://items/models/FloppyDisk/FloppyDisc.tscn" id="2_j4vo8"]
+
+[resource]
+script = ExtResource("1_ev3sf")
+Data = "### Maintenance report ###
+Date: 11/32 47 LC
+Executive staff: Stanley Howard
+
+- Replacement of damaged radio equipment
+- The investigation into the strange noises coming from the generator yielded no results. Monitor the engine closely.
+- Thermal insulation and pressure chamber fully functional.
+- Condition of emergency power generator deteriorating. In the event of a power failure, the Earth-like atmosphere will remain intact for only 5 minutes. "
+Name = "Maintenance report"
+Description = "A floppy disc with the latest maintenance report of the train"
+Icon = ExtResource("1_72sm1")
+Model = ExtResource("2_j4vo8")
+metadata/_custom_type_script = "uid://b8b2lfphfqpg6"

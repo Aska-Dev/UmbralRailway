@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://djr8v8y7omyla"]
+
+[ext_resource type="Script" uid="uid://bw0pho5bibsm5" path="res://player/Player.cs" id="1_ulp21"]
+[ext_resource type="Script" uid="uid://1k5d0lc5hp6h" path="res://components/InteractionRayComponent.cs" id="2_3c3w1"]
+[ext_resource type="Script" uid="uid://57wsx4iahcou" path="res://player/PlayerHand.cs" id="2_wnvi2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ehsmr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ulp21"]
+
+[node name="Player" type="CharacterBody3D" unique_id=503213186]
+script = ExtResource("1_ulp21")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=361006313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54075557, 0)
+current = true
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1819920623]
+
+[node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=1368819769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.15)
+
+[node name="InteractionRay" type="RayCast3D" parent="Pivot/Camera3D" unique_id=331091346]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
+target_position = Vector3(0, -1.25, 0)
+collision_mask = 2
+
+[node name="PlayerHand" type="Node3D" parent="Pivot" unique_id=586548420]
+transform = Transform3D(0.60865974, -0.2893866, -0.73877525, -0.33806655, 0.74777657, -0.5714375, 0.717805, 0.59756637, 0.35730952, 0.3350288, 0.28215122, -0.5305949)
+script = ExtResource("2_wnvi2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=1722016336]
+mesh = SubResource("CapsuleMesh_ehsmr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=593675983]
+shape = SubResource("CapsuleShape3D_ulp21")
+
+[node name="InteractionRayComponent" type="Node" parent="." unique_id=1282983837 node_paths=PackedStringArray("Ray")]
+script = ExtResource("2_3c3w1")
+Ray = NodePath("../Pivot/Camera3D/InteractionRay")
+metadata/_custom_type_script = "uid://1k5d0lc5hp6h"

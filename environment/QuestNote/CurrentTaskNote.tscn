@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d2cxb3bl87v82"]
+
+[ext_resource type="Script" uid="uid://dl307kwy66658" path="res://environment/QuestNote/CurrentTaskNote.cs" id="1_dlir0"]
+[ext_resource type="PackedScene" uid="uid://c84lha4gl0vda" path="res://assets/objects/PaperAndBooks/note_1.glb" id="1_x1d7c"]
+[ext_resource type="Script" uid="uid://df54utlaa5rxv" path="res://components/InteractionComponent.cs" id="2_n3h56"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x1d7c"]
+size = Vector3(0.22961426, 0.01574707, 0.30618286)
+
+[node name="CurrentQuestNote" type="StaticBody3D" unique_id=1499434902]
+script = ExtResource("1_dlir0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1512458165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032348633, 0.0015158206, 0.0012969971)
+shape = SubResource("BoxShape3D_x1d7c")
+
+[node name="note_12" parent="." unique_id=1810176992 instance=ExtResource("1_x1d7c")]
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=454598421]
+script = ExtResource("2_n3h56")
+InteractionMessage = "Press [F] to read current task"
+metadata/_custom_type_script = "uid://df54utlaa5rxv"
+
+[connection signal="OnInteraction" from="InteractionComponent" to="." method="OnInteract"]

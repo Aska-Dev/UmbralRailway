@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bhfrkxcnhynga"]
+
+[ext_resource type="Script" uid="uid://c0p80ohe67x4r" path="res://types/items/InWorldItem.cs" id="1_3olo2"]
+[ext_resource type="PackedScene" uid="uid://dc575d50t4lp1" path="res://assets/objects/computer/floppy_disc_2.glb" id="1_566ly"]
+[ext_resource type="Resource" uid="uid://b6ex2odivrckc" path="res://items/FloppyDisks/logentry1.tres" id="2_b8qvy"]
+[ext_resource type="Script" uid="uid://df54utlaa5rxv" path="res://components/InteractionComponent.cs" id="4_b8qvy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vh6h"]
+size = Vector3(0.20576477, 0.032714844, 0.2156372)
+
+[node name="InWorldFloppyDisc" type="StaticBody3D" unique_id=910330176]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_3olo2")
+Item = ExtResource("2_b8qvy")
+
+[node name="floppy_disc_22" parent="." unique_id=1844987488 instance=ExtResource("1_566ly")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2012768486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061798096, 0.007080078, -0.0038757324)
+shape = SubResource("BoxShape3D_1vh6h")
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=523188274]
+script = ExtResource("4_b8qvy")
+InteractionMessage = "Press [F] to pick up"
+metadata/_custom_type_script = "uid://df54utlaa5rxv"
+
+[connection signal="OnInteraction" from="InteractionComponent" to="." method="PickUp"]

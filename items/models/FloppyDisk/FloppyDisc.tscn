@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://clq3gke5iisam"]
+
+[ext_resource type="PackedScene" uid="uid://dc575d50t4lp1" path="res://assets/objects/computer/floppy_disc_2.glb" id="1_525g3"]
+
+[node name="floppy_disc_22" unique_id=1844987488 instance=ExtResource("1_525g3")]

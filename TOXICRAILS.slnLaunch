@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "Godot",
+    "Projects": [
+      {
+        "Path": "ToxicRails.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

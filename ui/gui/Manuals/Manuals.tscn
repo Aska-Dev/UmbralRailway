@@ -1,0 +1,320 @@
+[gd_scene format=3 uid="uid://bvyg53tlw13mi"]
+
+[ext_resource type="Texture2D" uid="uid://clyr6iofqk7ic" path="res://assets/objects/PaperAndBooks/bookInside.png" id="1_7a86v"]
+[ext_resource type="Script" uid="uid://qbnpuqrxew8f" path="res://ui/gui/Manuals/ManualsUi.cs" id="1_cxklg"]
+[ext_resource type="Texture2D" uid="uid://wuw7pcev2k1n" path="res://assets/objects/PaperAndBooks/yellowPaper.png" id="2_ujqbb"]
+[ext_resource type="Texture2D" uid="uid://c2mvvjbpm4tj0" path="res://assets/objects/PaperAndBooks/bookmark.png" id="3_hikjw"]
+[ext_resource type="Script" uid="uid://dggdpuc04rukc" path="res://ui/gui/Manuals/Bookmark.cs" id="4_wa7qj"]
+[ext_resource type="AudioStream" uid="uid://bsos8fxg6hkd7" path="res://assets/sounds/BooksAndPapers/turnBookPage.mp3" id="6_wa7qj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mj3h"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.85882354)
+
+[sub_resource type="SystemFont" id="SystemFont_ujqbb"]
+font_names = PackedStringArray("Consolas")
+font_weight = 550
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_hikjw"]
+font = SubResource("SystemFont_ujqbb")
+font_size = 12
+
+[sub_resource type="SystemFont" id="SystemFont_hikjw"]
+font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_tu4yg"]
+font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
+msdf_pixel_range = 32
+oversampling = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujqbb"]
+font = SubResource("SystemFont_tu4yg")
+font_size = 18
+font_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="Manuals" type="Control" unique_id=116061200]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxklg")
+
+[node name="Panel" type="Panel" parent="." unique_id=1653267922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8mj3h")
+
+[node name="Background" type="TextureRect" parent="." unique_id=169438618]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -424.0
+offset_top = -287.0
+offset_right = 424.0
+offset_bottom = 287.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7a86v")
+
+[node name="RightSide" type="TextureRect" parent="Background" unique_id=1117416545]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 8.0
+offset_right = 839.0
+offset_bottom = 565.0
+texture = ExtResource("2_ujqbb")
+expand_mode = 1
+
+[node name="LeftSide" type="TextureRect" parent="Background" unique_id=784429945]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 415.0
+offset_bottom = 564.0
+texture = ExtResource("2_ujqbb")
+expand_mode = 1
+flip_h = true
+
+[node name="Bookmarks" type="Control" parent="." unique_id=905910251]
+anchors_preset = 0
+offset_left = 989.0
+offset_top = 88.0
+offset_right = 1089.0
+offset_bottom = 114.0
+
+[node name="Introduction" type="Control" parent="Bookmarks" unique_id=67509290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_wa7qj")
+
+[node name="TextureRect" type="TextureRect" parent="Bookmarks/Introduction" unique_id=440425261]
+modulate = Color(0.50777024, 0.76679516, 0.57923317, 1)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+texture = ExtResource("3_hikjw")
+expand_mode = 1
+
+[node name="BookmarkLabel" type="Label" parent="Bookmarks/Introduction" unique_id=74626678]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Introduction"
+label_settings = SubResource("LabelSettings_hikjw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Train" type="Control" parent="Bookmarks" unique_id=62341980]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 26.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_wa7qj")
+
+[node name="TextureRect" type="TextureRect" parent="Bookmarks/Train" unique_id=1147494490]
+modulate = Color(0.7600582, 0.70671535, 0.31804612, 1)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+texture = ExtResource("3_hikjw")
+expand_mode = 1
+
+[node name="BookmarkLabel" type="Label" parent="Bookmarks/Train" unique_id=1729342133]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Train"
+label_settings = SubResource("LabelSettings_hikjw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Computer" type="Control" parent="Bookmarks" unique_id=1479644375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 60.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_wa7qj")
+
+[node name="TextureRect" type="TextureRect" parent="Bookmarks/Computer" unique_id=1208104476]
+modulate = Color(0.30184987, 0.4823131, 0.88867766, 1)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+texture = ExtResource("3_hikjw")
+expand_mode = 1
+
+[node name="BookmarkLabel" type="Label" parent="Bookmarks/Computer" unique_id=459256230]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Computer"
+label_settings = SubResource("LabelSettings_hikjw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pages" type="Control" parent="." unique_id=1105946970]
+anchors_preset = 0
+offset_left = 637.0
+offset_top = 55.0
+offset_right = 982.0
+offset_bottom = 583.0
+
+[node name="Introduction" type="RichTextLabel" parent="Pages" unique_id=1330976250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = SubResource("SystemFont_hikjw")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "
+01 - Introduction
+
+Use [W, A, S, D] to move around.
+Use [TAB] to open your inventory.
+Use [F] to interact with your surrounding.
+
+"
+scroll_active = false
+
+[node name="Train" type="RichTextLabel" parent="Pages" unique_id=1381151706]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = SubResource("SystemFont_hikjw")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "
+02 - How to operate the Train
+
+Go up to the Control Panel in the front to drive the train. Use [W] to drive forward and [S] to drive backward. You can stop the train by pressing [SPACE]. 
+
+For your own safety you cannot look outside of the train. To help you navigate we provided a map on the desk. Also you will hear an electric humming sound whenever you will reach a train station. 
+
+You can use the Computer whenever you are at a train station to connect to the stations network and lookup its name and id.
+
+Should you try to drive into a direction that is blocked or where the rails stop, the train will automatically brake to prevent derailment.
+"
+scroll_active = false
+
+[node name="Computer" type="RichTextLabel" parent="Pages" unique_id=651629676]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = SubResource("SystemFont_hikjw")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "
+03 - How to operate the onboard Computer
+
+You can use the Computer next to the control panel to connect to a locations network. 
+
+At a train station you can check the stations status and gather further informations about the location.
+
+Also you can feed floppy disks into the machine to read the data on them.
+"
+scroll_active = false
+
+[node name="HowToCloseIt" type="Label" parent="." unique_id=25459223]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -156.5
+offset_top = -47.0
+offset_right = 156.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.6955032, 0.6955031, 0.6955031, 1)
+text = "Press [ESC] or [F] to close"
+label_settings = SubResource("LabelSettings_ujqbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TurnPageSound" type="AudioStreamPlayer" parent="." unique_id=47572209]
+stream = ExtResource("6_wa7qj")
+
+[connection signal="Clicked" from="Bookmarks/Introduction" to="." method="SelectPage"]
+[connection signal="Clicked" from="Bookmarks/Train" to="." method="SelectPage"]
+[connection signal="Clicked" from="Bookmarks/Computer" to="." method="SelectPage"]

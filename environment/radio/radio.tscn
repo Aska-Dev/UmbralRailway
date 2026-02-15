@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://kl4uu5qphq6d"]
+
+[ext_resource type="Script" uid="uid://bql84g2yht81c" path="res://environment/radio/Radio.cs" id="1_8mjgr"]
+[ext_resource type="PackedScene" uid="uid://c2w1mi2bdt3yc" path="res://assets/objects/radio/military_radio_1.fbx" id="1_jgok3"]
+[ext_resource type="PackedScene" uid="uid://bssi5fofbbwi2" path="res://assets/objects/radio/military_radio_2.fbx" id="2_8mjgr"]
+
+[node name="Radio" type="Node3D" unique_id=1773024697]
+script = ExtResource("1_8mjgr")
+
+[node name="military_radio_1" parent="." unique_id=271368917 instance=ExtResource("1_jgok3")]
+
+[node name="military_radio_2" parent="." unique_id=724774477 instance=ExtResource("2_8mjgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17258444, 0)
+
+[node name="Light" type="OmniLight3D" parent="." unique_id=1317467374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1671397, 0.30683866, 0.21352416)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.5
+omni_range = 0.34414494

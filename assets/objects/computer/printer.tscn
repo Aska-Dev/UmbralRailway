@@ -1,0 +1,47 @@
+[gd_scene format=4 uid="uid://bdv41s63ulix1"]
+
+[ext_resource type="Texture2D" uid="uid://clpekq6bk1dva" path="res://assets/objects/furnituer assets/Printer.png" id="1_x8gc4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvwd3"]
+resource_name = "Printer"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.42365113, 0.42365056, 0.42365035, 1)
+albedo_texture = ExtResource("1_x8gc4")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nwjko"]
+_surfaces = [{
+"aabb": AABB(-0.34638554, -0.15154375, -0.43298194, 0.69277114, 0.30308747, 0.8659639),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAADAAAABAAAAAIAAwAFAAEABQADAAQABQAGAAEAAQAGAAIAAgAGAAUABwACAAUABwAEAAIABwAFAAQA"),
+"name": "Printer",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("dFmxPkAuGz7Pr92+dFmxPkcuGz7Pr90+clmxvkAuGz7Pr92+dFmxPkIuG77Pr90+dFmxPkkuG77Pr92+clmxvkIuG77Pr90+clmxvkcuGz7Pr90+clmxvkkuG77Pr92+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vv0wi"]
+resource_name = "Cube_035"
+_surfaces = [{
+"aabb": AABB(-0.34638554, -0.15154375, -0.43298194, 0.69277114, 0.30308747, 0.8659639),
+"attribute_data": PackedByteArray("iEdtP/x/Qj6IR20/zBrBPgLwRj/8f0I+AvBGP8wawT6zfVY/gIckPbN9Vj/4f0I+abdFP4CHJD1pt0U/+H9CPuUEgD/KGsE+eD9xP8oawT7lBIA/+H9CPng/cT/4f0I+pF8jP8oawT6kXyM/+H9CPiq3ST/KGsE+KrdJP/h/Qj7JXjE/AJcyO8leMT/4f0I+fJggPwCXMjt8mCA/+H9CPmm3RT+AhyQ9abdFP/h/Qj4f8TQ/gIckPR/xND/4f0I+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAAFAAYABQAHAAYACAAJAAoACQALAAoADAANAA4ADQAPAA4AEAARABIAEQATABIAFAAVABYAFQAXABYA"),
+"material": SubResource("StandardMaterial3D_kvwd3"),
+"name": "Printer",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("dFmxPkAuGz7Pr92+dFmxPkcuGz7Pr90+clmxvkAuGz7Pr92+clmxvkcuGz7Pr90+dFmxPkIuG77Pr90+clmxvkIuG77Pr90+dFmxPkcuGz7Pr90+clmxvkcuGz7Pr90+clmxvkkuG77Pr92+clmxvkAuGz7Pr92+clmxvkIuG77Pr90+clmxvkcuGz7Pr90+clmxvkkuG77Pr92+clmxvkIuG77Pr90+dFmxPkkuG77Pr92+dFmxPkIuG77Pr90+dFmxPkkuG77Pr92+dFmxPkIuG77Pr90+dFmxPkAuGz7Pr92+dFmxPkcuGz7Pr90+clmxvkkuG77Pr92+dFmxPkkuG77Pr92+clmxvkAuGz7Pr92+dFmxPkAuGz7Pr92+/3///////7//f///////v/9///////+//3///////7//f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA/38AAP///7//fwAA////v/9/AAD///+//38AAP///7////9//38AgP///3//fwCA////f/9/AID///9//38AgP//////fwCA//////9/AID//////38AgP//////fwCA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nwjko")
+
+[node name="Printer" type="Node3D" unique_id=1629656746]
+
+[node name="Printer" type="MeshInstance3D" parent="." unique_id=1464976070]
+mesh = SubResource("ArrayMesh_vv0wi")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://boks6kr4qga8c"
+path="res://.godot/imported/buttonPress.mp3-6dc4f5e616fe7b6c5fc2b1743843b0b9.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/lever and clanks/buttonPress.mp3"
+dest_files=["res://.godot/imported/buttonPress.mp3-6dc4f5e616fe7b6c5fc2b1743843b0b9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

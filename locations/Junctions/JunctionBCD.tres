@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Junction" format=3 uid="uid://3ohiweu3ajge"]
+
+[ext_resource type="Script" uid="uid://dehhit08hcl64" path="res://types/Locations/Junction.cs" id="1_owdqi"]
+[ext_resource type="Script" uid="uid://11crlnenwxph" path="res://types/Locations/Neighbour.cs" id="1_pfatf"]
+
+[sub_resource type="Resource" id="Resource_2fh2l"]
+script = ExtResource("1_pfatf")
+LocationId = &"Station.B"
+Distance = 1000
+Direction = 2
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[sub_resource type="Resource" id="Resource_pfatf"]
+script = ExtResource("1_pfatf")
+LocationId = &"Station.C"
+Distance = 1500
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[sub_resource type="Resource" id="Resource_4e05y"]
+script = ExtResource("1_pfatf")
+LocationId = &"Station.D"
+Distance = 1000
+Direction = 3
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[resource]
+script = ExtResource("1_owdqi")
+LocationId = &"JunctionBCD"
+Neighbours = [SubResource("Resource_2fh2l"), SubResource("Resource_pfatf"), SubResource("Resource_4e05y")]
+metadata/_custom_type_script = "uid://dehhit08hcl64"

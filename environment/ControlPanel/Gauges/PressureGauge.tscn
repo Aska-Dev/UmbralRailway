@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bngxxnqndswoh"]
+
+[ext_resource type="PackedScene" uid="uid://b40t2l07mbwhu" path="res://assets/objects/control panel/gauges/gauge_etx_2_1.glb" id="1_tisdo"]
+
+[node name="gauge_etx_2_12" unique_id=1366980835 instance=ExtResource("1_tisdo")]
+
+[node name="gauge_pointer_etx_2_1_child" parent="gauge_etx_2_1" parent_id_path=PackedInt32Array(679660258) index="1" unique_id=1041215296]
+transform = Transform3D(-0.8660253, 0, -0.49999997, 0, 1, 0, 0.49999997, 0, -0.8660253, 0, 0.020000067, -0.27999997)
