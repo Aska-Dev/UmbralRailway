@@ -15,3 +15,5 @@
 
 Cargo Station => Hauptlager und Frachtbahnhof 
 Vesta Station => Personalunterbringung und Wohnräume
+Echo Station => Sendemast und Rechenzentrum
+Forge Station?
