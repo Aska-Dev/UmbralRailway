@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SendingSignalTask" format=3 uid="uid://crsu7tafa61h0"]
+
+[ext_resource type="Script" uid="uid://bbko2j1tfd7xy" path="res://types/Tasks/SendingSignalCondition.cs" id="1_dev1u"]
+
+[sub_resource type="Resource" id="Resource_rommb"]
+script = ExtResource("1_dev1u")
+RequiredSignal = 12
+TaskNumber = 4
+Title = "12"
+metadata/_custom_type_script = "uid://bbko2j1tfd7xy"
+
+[sub_resource type="Resource" id="Resource_dev1u"]
+script = ExtResource("1_dev1u")
+RequiredSignal = 10
+TaskNumber = 3
+Title = "10"
+Description = "afdasdfasdf"
+NextTask = SubResource("Resource_rommb")
+metadata/_custom_type_script = "uid://bbko2j1tfd7xy"
+
+[resource]
+script = ExtResource("1_dev1u")
+RequiredSignal = 4
+TaskNumber = 2
+Title = "Check power supply at gehenna station"
+Description = " asdfa asdf asdf asdfasdf"
+NextTask = SubResource("Resource_dev1u")
+metadata/_custom_type_script = "uid://bbko2j1tfd7xy"

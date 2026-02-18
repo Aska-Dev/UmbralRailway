@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dm486aifsemdf"]
+
+[ext_resource type="Script" uid="uid://db57kt0gvaq4j" path="res://environment/ControlPanel/SignalStation/SignalStation.cs" id="1_ivfdm"]
+[ext_resource type="PackedScene" uid="uid://y3b1wujc0kj1" path="res://assets/objects/levers/turner.tscn" id="2_2iv5i"]
+[ext_resource type="PackedScene" uid="uid://dtax117hodv2i" path="res://assets/objects/StationInterface/screen/screen_etx_1_partial.glb" id="3_j15ae"]
+[ext_resource type="PackedScene" uid="uid://bb8cy0hnayymr" path="res://assets/objects/levers/button_etx_black_2.glb" id="4_ifdv8"]
+[ext_resource type="Script" uid="uid://df54utlaa5rxv" path="res://components/InteractionComponent.cs" id="5_u1c4f"]
+[ext_resource type="AudioStream" uid="uid://hfa8wgq7468t" path="res://assets/sounds/lever and clanks/metalClick.mp3" id="6_u1c4f"]
+[ext_resource type="AudioStream" uid="uid://bu5ikxpegsdcn" path="res://assets/sounds/computer/success.mp3" id="7_pl333"]
+
+[sub_resource type="SystemFont" id="SystemFont_2iv5i"]
+font_names = PackedStringArray("Consolas")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ivfdm"]
+size = Vector3(0.22375488, 0.042793274, 0.16529846)
+
+[node name="SignalStation" type="StaticBody3D" unique_id=435284112]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ivfdm")
+
+[node name="Turner" parent="." unique_id=1168476005 instance=ExtResource("2_2iv5i")]
+transform = Transform3D(-0.5735764, 0, 0.81915194, 0, 1, 0, -0.81915194, 0, -0.5735764, -0.16350639, 0.06983903, 0.04185075)
+
+[node name="Display" type="Label3D" parent="." unique_id=753900194]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.16403192, 0.084178865, -0.03310413)
+visible = false
+pixel_size = 0.001
+text = "10-0"
+font = SubResource("SystemFont_2iv5i")
+font_size = 24
+outline_size = 0
+autowrap_mode = 1
+width = 75.0
+
+[node name="screen_etx_1_partial2" parent="." unique_id=1671734186 instance=ExtResource("3_j15ae")]
+transform = Transform3D(0.3, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.16383064, 0.05600652, -0.034646407)
+
+[node name="button_etx_black_22" parent="." unique_id=1524201614 instance=ExtResource("4_ifdv8")]
+transform = Transform3D(-2.1855694e-08, 0.5, 0, 2.1855694e-08, 9.553427e-16, 0.5, 0.5, 2.1855694e-08, -2.1855694e-08, -0.05009345, 0.06265563, 0.036850363)
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=193453947]
+script = ExtResource("5_u1c4f")
+InteractionMessage = "Press [F] to use the signal station"
+metadata/_custom_type_script = "uid://df54utlaa5rxv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1089569587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124816895, 0.08132279, 0.008705139)
+shape = SubResource("BoxShape3D_ivfdm")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=646702131]
+stream = ExtResource("6_u1c4f")
+volume_db = -5.0
+max_polyphony = 3
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="." unique_id=1906475295]
+stream = ExtResource("7_pl333")
+volume_db = -2.0
+
+[node name="light" type="OmniLight3D" parent="." unique_id=470438404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050413184, 0.11719233, 0.036333613)
+visible = false
+light_color = Color(0.547934, 0.3478674, 2.8878452e-07, 1)
+light_energy = 7.203
+omni_range = 0.109
+
+[connection signal="OnInteraction" from="InteractionComponent" to="." method="OnInteract"]

@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://dwyvdqd54cuuh"]
+
+[ext_resource type="Script" uid="uid://01cssjfmawfx" path="res://environment/ServiceInterface/DiskSlot/ServiceInterfaceDiskSpace.cs" id="1_idesd"]
+[ext_resource type="PackedScene" uid="uid://c6ee0fj4f2tj3" path="res://assets/objects/StationInterface/cpu_1.glb" id="1_u2afd"]
+[ext_resource type="PackedScene" uid="uid://dc575d50t4lp1" path="res://assets/objects/computer/floppy_disc_2.glb" id="2_eu3i7"]
+[ext_resource type="AudioStream" uid="uid://c8tixym1ikcim" path="res://assets/sounds/computer/disk.mp3" id="4_hxmp7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2afd"]
+albedo_color = Color(0.033853274, 0.03385328, 0.033853255, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u2afd"]
+size = Vector3(0.01, 0.01, 0.1)
+
+[sub_resource type="Animation" id="Animation_iwm7j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floppy_disc_22:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("floppy_disc_22:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.005019039, 0.19255282, -0.0051818937)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("floppy_disc_22:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.3044777, -3.0580127, 1.4699819)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_idesd"]
+resource_name = "eject"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floppy_disc_22:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("floppy_disc_22:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.005019039, -0.04858999, -0.0051818937), Vector3(-0.005, 0.193, -0.005), Vector3(-0.005, 0.23953207, -0.005)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("floppy_disc_22:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.3044777, -3.0580127, 1.4699819), Vector3(-1.3044777, -3.0580127, 1.4699819), Vector3(-0.36858645, -1.8557837, 0.09096863)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_eu3i7"]
+resource_name = "input"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floppy_disc_22:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("floppy_disc_22:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.005019039, 0.19255282, -0.0051818937), Vector3(-0.005019039, -0.033997282, -0.0051818937)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("floppy_disc_22:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.3044777, -3.0580127, 1.4699819)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwm7j"]
+_data = {
+&"RESET": SubResource("Animation_iwm7j"),
+&"eject": SubResource("Animation_idesd"),
+&"input": SubResource("Animation_eu3i7")
+}
+
+[node name="DiskSpace" type="Node3D" unique_id=11924014]
+script = ExtResource("1_idesd")
+
+[node name="cpu_12" parent="." unique_id=1798298108 instance=ExtResource("1_u2afd")]
+transform = Transform3D(2.8670323, 0, -2.0075176, 0, 3.5, 0, 2.0075176, 0, 2.8670323, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cpu_12" unique_id=1084504729]
+transform = Transform3D(0.40957603, 0, 0.28678823, 0, 0.5, 0, -0.28678823, 0, 0.40957603, -0.00067373615, 0.008156776, -0.000962195)
+material_override = SubResource("StandardMaterial3D_u2afd")
+mesh = SubResource("BoxMesh_u2afd")
+
+[node name="floppy_disc_22" parent="." unique_id=1844987488 instance=ExtResource("2_eu3i7")]
+transform = Transform3D(-0.020161772, 0.99955523, -0.021971103, 0.26184538, 0.026487581, 0.9647463, 0.96489936, 0.013697959, -0.26226297, -0.005019039, 0.19255282, -0.0051818937)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1664228512]
+libraries/ = SubResource("AnimationLibrary_iwm7j")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=914988324]
+stream = ExtResource("4_hxmp7")

@@ -7,9 +7,11 @@ public partial class Startup : Node
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 
-		GetTree().CreateTimer(10f).Timeout += () =>
+		var firstTask = ResourceLoader.Load<ReachingLocationTask>("res://Tasks/0/0-ReachingGehennaStation.tres");
+
+        GetTree().CreateTimer(10f).Timeout += () =>
 		{
-			TrainEventBus.Instance.AssignNewTask(TaskRegistry.Instance.Get(1));
+			TrainEventBus.Instance.AssignNewTask(firstTask);
 		};
     }
 }

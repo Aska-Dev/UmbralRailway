@@ -36,11 +36,6 @@ public partial class Player : CharacterBody3D, IEntity
 
     public override void _Input(InputEvent @event)
     {
-        if(@event.IsActionPressed(Inputs.Debug))
-        {
-            TrainEventBus.Instance.AssignNewTask(TaskRegistry.Instance.Get(1));
-        }
-
         if(!InputEnabled)
         {
             return;

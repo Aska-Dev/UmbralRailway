@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccvemhim4b4ck" path="res://environment/ControlPanel/SpeedLever/Speedlever.tscn" id="2_cx1d2"]
 [ext_resource type="PackedScene" uid="uid://duaoxoiviw7wm" path="res://assets/objects/control panel/gauges/gauge_etx_1_1.glb" id="4_l3sny"]
 [ext_resource type="PackedScene" uid="uid://bngxxnqndswoh" path="res://environment/ControlPanel/Gauges/PressureGauge.tscn" id="6_7jyq6"]
+[ext_resource type="PackedScene" uid="uid://dm486aifsemdf" path="res://environment/ControlPanel/SignalStation/SignalStation.tscn" id="6_07rpb"]
 [ext_resource type="PackedScene" uid="uid://mhurqhfidof2" path="res://environment/ControlPanel/Gauges/PowerGauge.tscn" id="6_16jt5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cx1d2"]
@@ -20,7 +21,7 @@ data = PackedVector3Array(-0.16, 0.25, 0.5, 0.39999998, -0.25, 0.5, -0.39999998,
 [node name="ControlPanel" type="Node3D" unique_id=823414135]
 
 [node name="speed lever" parent="." unique_id=1649712554 instance=ExtResource("2_cx1d2")]
-transform = Transform3D(-4.371139e-08, -0.7431448, 0.6691305, 0, 0.6691305, 0.7431448, -1, 3.248389e-08, -2.9248623e-08, 0.2154254, -0.08355262, 0.29307333)
+transform = Transform3D(-4.371139e-08, -0.7431448, 0.6691305, 0, 0.6691305, 0.7431448, -1, 3.248389e-08, -2.9248623e-08, 0.2154254, -0.08355262, 0.31620574)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=951754585]
 collision_layer = 0
@@ -41,3 +42,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0
 
 [node name="PowerGauge" parent="." unique_id=2044028789 instance=ExtResource("6_16jt5")]
 transform = Transform3D(-5.2453668e-08, -0.8917739, 0.8029567, 0, 0.8029567, 0.8917739, -1.2, 3.8980673e-08, -3.5098353e-08, -0.1, 0.104, 0)
+
+[node name="SignalStation" parent="." unique_id=1959898797 instance=ExtResource("6_07rpb")]
+transform = Transform3D(-8.667259e-08, 1.1898664, 1.3506361, -9.071956e-09, 1.3506361, -1.1898664, -1.8, -6.410095e-08, -5.9038182e-08, 0.11603665, -0.17056441, -0.4939508)

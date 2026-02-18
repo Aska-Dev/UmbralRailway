@@ -19,11 +19,14 @@ public partial class Task : Resource
     [Export]
     public Task? NextTask { get; set; }
 
+    [Export]
+    public Task[] AlternativeTasks { get; set; } = [];
+
     private bool _isCompleted = false;
 
     public void Complete()
     {
-        if(NextTask is null || _isCompleted)
+        if(NextTask is null || _isCompleted )
         {
             return;
         }

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv27i43emd8sk"
-path.s3tc="res://.godot/imported/fabric_tx_1.png-9c7249b7b5ed0c888d0b821df36cd4e9.s3tc.ctex"
+uid="uid://yfq5quyxyf6y"
+path.s3tc="res://.godot/imported/signal_receiver_etx_1_electronics_etx_part_2.png-76e57e89a516ca612d7570b553b9548b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "32b22d2296ef0795a9bf29087d45271a"
+}
 
 [deps]
 
-source_file="res://assets/textures/fabric_tx_1.png"
-dest_files=["res://.godot/imported/fabric_tx_1.png-9c7249b7b5ed0c888d0b821df36cd4e9.s3tc.ctex"]
+source_file="res://assets/objects/levers/signal_receiver_etx_1_electronics_etx_part_2.png"
+dest_files=["res://.godot/imported/signal_receiver_etx_1_electronics_etx_part_2.png-76e57e89a516ca612d7570b553b9548b.s3tc.ctex"]
 
 [params]
 

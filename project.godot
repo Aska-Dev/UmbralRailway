@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="ToxicRails"
+config/name="UmbralRailway"
 run/main_scene="uid://deq118j1u3h8g"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -23,7 +23,7 @@ PlayerEventBus="*uid://cmolnfx16i32s"
 TrainEventBus="*uid://cwruwpp5sc10m"
 GlobalEventBus="*uid://c0hit5qo7023r"
 LocationRegistry="*uid://dkroi4q846pqt"
-TaskRegistry="*uid://cl4q3uiw2k2ak"
+TaskRegistry="uid://cl4q3uiw2k2ak"
 
 [display]
 

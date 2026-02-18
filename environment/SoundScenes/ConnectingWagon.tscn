@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dwiyxrtkrxrfo"]
+
+[ext_resource type="AudioStream" uid="uid://c53p2o4ibn3y2" path="res://assets/sounds/train/connectWagon.mp3" id="1_0meoi"]
+
+[node name="ConnectingWagon" type="AudioStreamPlayer" unique_id=284942323]
+stream = ExtResource("1_0meoi")

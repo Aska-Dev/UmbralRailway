@@ -11,8 +11,10 @@ public partial class ComputerScreen : Control
 
 	private Location? currentLocation = null;
 	private ComputerData computerData = new ComputerData();
+	  
+	private Wagon? connectedWagon = null;
 
-	private string DiscNotice => $"Disc Detected: {computerData.InsertedFloppyDisc!.Name}\n\nAvailable commands:\n\nread - Read content\neject - eject disc from computer";
+    private string DiscNotice => $"Disc Detected: {computerData.InsertedFloppyDisc!.Name}\n\nAvailable commands:\n\nread - Read content";
 
     public override void _Ready()
 	{
@@ -33,6 +35,7 @@ public partial class ComputerScreen : Control
 		{
 			currentLocation = train.Location;
             computerData = train.ComputerData;
+			connectedWagon = train.ConnectedWagon;
         }
 
 		if(computerData.InsertedFloppyDisc is not null)
@@ -87,11 +90,11 @@ public partial class ComputerScreen : Control
 			case "read":
 				Read();
 				break;
-			case "eject":
-				Eject();
-				break;
 			case "logs":
 				Logs();
+				break;
+			case "sysinfo":
+				SysInfo();
 				break;
             default:
                 PrintLine($"Unknown command: {input}\nType 'help' for a list of commands.");
@@ -161,7 +164,7 @@ public partial class ComputerScreen : Control
 
     private void Help()
 	{
-		PrintLine("Available commands:\nhelp - Show this help message\nconnect - Connect to the closest available network\nexit - Exit the computer screen");
+		PrintLine("Available commands:\nhelp - Show this help message\nconnect - Connect to the closest available network\nsysinfo - Provides information about the train\nexit - Exit the computer screen");
     }
 
 	private void Connect()
@@ -234,9 +237,43 @@ public partial class ComputerScreen : Control
         }
     }
 
+	private void SysInfo()
+	{
+		var info = $"SYSTEM INFORMATION\n" +
+			"--------------------------------------------------\n" +
+			$"MODEL: T-41-CCC\n" +
+			$"SERIAL: 017-0001\n" +
+			"--------------------------------------------------\n" +
+			$"GENERATOR: [ACTIVE]\n" +
+			$"LIFE SUPPORT SYSTEMS: [ACTIVE]\n" +
+			$"ENGINE: [ACTIVE]\n" +
+			"--------------------------------------------------\n";
+
+		if(connectedWagon is null)
+		{
+			info += "NO WAGON ATTACHED";
+        }
+		else
+		{
+			info += "WAGON ATTACHED\n" +
+				$"SERIAL: {connectedWagon.WagonId}\n";
+        }
+
+		PrintLine("Gathering relevant informations...");
+
+		GetTree().CreateTimer(1f).Timeout += () => PrintLine(info);
+    }
+
     private void Exit()
 	{
-		UiEventBus.Instance.ToggleComputerScreen(false);
-		PlayerEventBus.Instance.SetPlayerInputEnabled(true);
+		if(computerData.InsertedFloppyDisc is not null)
+		{
+			Eject();
+		}
+		else
+		{
+			UiEventBus.Instance.ToggleComputerScreen(false);
+			PlayerEventBus.Instance.SetPlayerInputEnabled(true);
+		}
     }
 }

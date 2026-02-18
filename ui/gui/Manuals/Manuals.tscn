@@ -23,9 +23,17 @@ subpixel_positioning = 0
 font = SubResource("SystemFont_ujqbb")
 font_size = 12
 
+[sub_resource type="LabelSettings" id="LabelSettings_wa7qj"]
+font = SubResource("SystemFont_ujqbb")
+font_size = 10
+
 [sub_resource type="SystemFont" id="SystemFont_hikjw"]
 font_names = PackedStringArray("Consolas")
 subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_wa7qj"]
+font_names = PackedStringArray("Consolas")
+font_weight = 550
 
 [sub_resource type="SystemFont" id="SystemFont_tu4yg"]
 font_names = PackedStringArray("Consolas")
@@ -208,6 +216,43 @@ label_settings = SubResource("LabelSettings_hikjw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Station Services" type="Control" parent="Bookmarks" unique_id=1830720385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 95.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_wa7qj")
+
+[node name="TextureRect" type="TextureRect" parent="Bookmarks/Station Services" unique_id=463604951]
+modulate = Color(0.7952614, 0.31318194, 0.32167494, 1)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+texture = ExtResource("3_hikjw")
+expand_mode = 1
+
+[node name="BookmarkLabel" type="Label" parent="Bookmarks/Station Services" unique_id=815535727]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Station Services"
+label_settings = SubResource("LabelSettings_wa7qj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Pages" type="Control" parent="." unique_id=1105946970]
 anchors_preset = 0
 offset_left = 637.0
@@ -293,6 +338,36 @@ Also you can feed floppy disks into the machine to read the data on them.
 "
 scroll_active = false
 
+[node name="Station Services" type="RichTextLabel" parent="Pages" unique_id=298997092]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = SubResource("SystemFont_hikjw")
+theme_override_fonts/bold_font = SubResource("SystemFont_wa7qj")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_font_sizes/bold_italics_font_size = 12
+theme_override_font_sizes/italics_font_size = 12
+theme_override_font_sizes/mono_font_size = 12
+bbcode_enabled = true
+text = "
+04 - Station Services
+
+Some train stations on the grounds still provide so called \"station services\". You can check all the available services of a station by checking the status of a station on the Computer.
+
+If you are connected to a station you can use the Station Service Interface to request services from that station. 
+
+[b]Shunting Crane[/b] - This service can attach an available wagon to the train. If there is already a wagon attached and there is space at the station it will store the attached wagon at the station."
+scroll_active = false
+
 [node name="HowToCloseIt" type="Label" parent="." unique_id=25459223]
 layout_mode = 1
 anchors_preset = 7
@@ -318,3 +393,4 @@ stream = ExtResource("6_wa7qj")
 [connection signal="Clicked" from="Bookmarks/Introduction" to="." method="SelectPage"]
 [connection signal="Clicked" from="Bookmarks/Train" to="." method="SelectPage"]
 [connection signal="Clicked" from="Bookmarks/Computer" to="." method="SelectPage"]
+[connection signal="Clicked" from="Bookmarks/Station Services" to="." method="SelectPage"]

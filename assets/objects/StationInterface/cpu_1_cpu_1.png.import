@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv27i43emd8sk"
-path.s3tc="res://.godot/imported/fabric_tx_1.png-9c7249b7b5ed0c888d0b821df36cd4e9.s3tc.ctex"
+uid="uid://bk57i06nrt8ng"
+path.s3tc="res://.godot/imported/cpu_1_cpu_1.png-16cb8d39ef661917506f974a156a1283.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "683f38b98a4861816b2db4bd94088a55"
+}
 
 [deps]
 
-source_file="res://assets/textures/fabric_tx_1.png"
-dest_files=["res://.godot/imported/fabric_tx_1.png-9c7249b7b5ed0c888d0b821df36cd4e9.s3tc.ctex"]
+source_file="res://assets/objects/StationInterface/cpu_1_cpu_1.png"
+dest_files=["res://.godot/imported/cpu_1_cpu_1.png-16cb8d39ef661917506f974a156a1283.s3tc.ctex"]
 
 [params]
 

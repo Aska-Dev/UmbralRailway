@@ -1,14 +1,13 @@
 using DungeonLetter.Common;
 using Godot;
-using System;
-using System.Runtime.CompilerServices;
-using System.Security.AccessControl;
+using System.Diagnostics.CodeAnalysis;
 
 public partial class ServiceInterface : StaticBody3D, IEntity
 {
 	public ComponentList Components { get; set; } = null!;
 
-	private bool isActive = false;
+	private bool isWithFloppyDisk = false;
+    private bool isActive = false;
 	private bool isConnected = false;
     private bool requestOngoing = false;
     private int selectedServiceIndex = 0;
@@ -22,11 +21,21 @@ public partial class ServiceInterface : StaticBody3D, IEntity
 	private AudioStreamPlayer errorSound = null!;
 	private AudioStreamPlayer3D workingSound = null!;
 
+	private BlueCycleButtons blueCycleButtons = null!;
+	private RequestStationServiceButton requestButton = null!;
+	private ServiceInterfaceDiskSpace diskSlot = null!;
+
+	private FloppyDisk? diskInSlot = null;
+
     public override void _Ready()
 	{
 		Components = new ComponentList(this);
 
-		pressSound = GetNode<AudioStreamPlayer>("PressSound");
+		diskSlot = GetNode<ServiceInterfaceDiskSpace>("DiskSpace");
+        blueCycleButtons = GetNode<BlueCycleButtons>("CycleButtons");
+		requestButton = GetNode<RequestStationServiceButton>("RequestButton");
+
+        pressSound = GetNode<AudioStreamPlayer>("PressSound");
 		errorSound = GetNode<AudioStreamPlayer>("ErrorSound");
 		workingSound = GetNode<AudioStreamPlayer3D>("WorkingSound");
 
@@ -36,6 +45,9 @@ public partial class ServiceInterface : StaticBody3D, IEntity
 
 		TrainEventBus.Instance.TrainNetworkConnectionChanged += OnConnectionChanged;
 		TrainEventBus.Instance.TrainLocationTravelled += (Location location) => currentLocation = location;
+		PlayerEventBus.Instance.UpdateEquippedItem += OnPlayerItemEquipped;
+		TrainEventBus.Instance.StationServiceRequestCompleted += CompleteStationService;
+		TrainEventBus.Instance.StationServiceNoteUpdated += (string message) => note.Text = message;
     }
 
     public override void _Input(InputEvent @event)
@@ -44,7 +56,7 @@ public partial class ServiceInterface : StaticBody3D, IEntity
 		{
 			if(@event.IsActionPressed(Inputs.Interact))
 			{
-				Disable();
+				OnStopInteract();
 			}
 
 			if(!requestOngoing)
@@ -52,25 +64,79 @@ public partial class ServiceInterface : StaticBody3D, IEntity
                 if (@event.IsActionPressed(Inputs.MoveRight))
                 {
 					pressSound.Play();
+                    blueCycleButtons.PlayPress1Animation();
                     CycleServicesForward();
                 }
 
                 if (@event.IsActionPressed(Inputs.MoveLeft))
                 {
 					pressSound.Play();
+					blueCycleButtons.PlayPress2Animation();
                     CycleServicesBackward();
                 }
 
                 if (@event.IsActionPressed(Inputs.Space))
                 {
 					pressSound.Play();
+					requestButton.PlayPressAimation();
                     RequestSelectedService();
                 }
             }
         }
     }
 
-	public void Enable()
+    public void OnPlayerItemEquipped(Item? item)
+    {
+        if (item is FloppyDisk)
+        {
+            Components.Get<InteractionComponent>().InteractionMessage = "Press [F] to insert Floppy Disc";
+			isWithFloppyDisk = true;
+        }
+        else
+        {
+            Components.Get<InteractionComponent>().InteractionMessage = "Press [F] to use the service interface";
+			isWithFloppyDisk = false;
+        }
+    }
+
+	public void OnInteract()
+	{
+		if(isWithFloppyDisk)
+		{
+			var player = GetTree().GetFirstNodeInGroup("player") as Player;
+            
+			diskInSlot = player!.CurrentItem as FloppyDisk;
+            PlayerEventBus.Instance.EquipItem(null);
+
+            PlayerEventBus.Instance.SetPlayerInputEnabled(false);
+            diskSlot.PlayDiskInputAnimation();
+			GetTree().CreateTimer(1f).Timeout += () => Enable();
+        }
+		else
+		{
+			Enable();
+		}
+	}
+
+	private void OnStopInteract()
+	{
+		if (diskInSlot is not null)
+		{
+			diskSlot.PlayDiskEjectAnimation();
+			GetTree().CreateTimer(1.3f).Timeout += () =>
+			{
+                PlayerEventBus.Instance.EquipItem(diskInSlot);
+                diskInSlot = null;
+                Disable();
+			};
+		}
+		else
+		{
+			Disable();
+		}
+	}
+
+    private void Enable()
 	{
 		isActive = true;
         PlayerEventBus.Instance.SetPlayerInputEnabled(false);
@@ -119,7 +185,7 @@ public partial class ServiceInterface : StaticBody3D, IEntity
 
 	private void RequestSelectedService()
 	{
-        if (isConnected && currentLocation is TrainStation station)
+        if (isConnected && currentLocation is TrainStation station && station.Data.Services.Length > 0)
 		{
 			requestOngoing = true;
             var service = station.Data.Services[selectedServiceIndex];
@@ -142,11 +208,8 @@ public partial class ServiceInterface : StaticBody3D, IEntity
 								note.Text = $"Station confirmed request. Processing...\n[██████████ 100%]\"";
 								GetTree().CreateTimer(1).Timeout += () =>
 								{
-									note.Text = $"Service execution complete.";
+									note.Text = $"Service request complete.";
 									service.PerformService();
-									requestOngoing = false;
-
-									GetTree().CreateTimer(2).Timeout += () => note.Text = "";
                                 };
 							};
 						};
@@ -223,5 +286,12 @@ public partial class ServiceInterface : StaticBody3D, IEntity
 				note.Text = "This service is currently not operational.";
 			}
 		}
+    }
+
+	private void CompleteStationService()
+	{
+        UiEventBus.Instance.ClearHintText();
+        note.Text = "";
+        requestOngoing = false;
     }
 }

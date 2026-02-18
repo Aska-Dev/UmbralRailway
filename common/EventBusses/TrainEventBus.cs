@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Runtime.Loader;
+using System.Xml.Serialization;
 
 public partial class TrainMotionChangedEventArgs : RefCounted
 {
@@ -58,9 +59,28 @@ public partial class TrainEventBus : Node
     public delegate void TrainFloppyDiscUpdatedEventHandler(FloppyDisk? floppyDisk);
     public void UpdateTrainFloppyDisc(FloppyDisk? floppyDisk) => EmitSignal(SignalName.TrainFloppyDiscUpdated, floppyDisk);
 
+    // Wagon Events
+    [Signal]
+    public delegate void WagonUpdatedEventHandler(Wagon? wagon);
+    public void UpdateWagon(Wagon? wagon) => EmitSignal(SignalName.WagonUpdated, wagon);
+
     // Task Events
     [Signal]
     public delegate void NewTaskAssignedEventHandler(Task task);
     public void AssignNewTask(Task task) => EmitSignal(SignalName.NewTaskAssigned, task);
+
+    // Station services event
+    [Signal]
+    public delegate void StationServiceRequestCompletedEventHandler();
+    public void CompleteStationServiceRequest() => EmitSignal(SignalName.StationServiceRequestCompleted);
+
+    [Signal]
+    public delegate void StationServiceNoteUpdatedEventHandler(string note);
+    public void UpdateStationServiceNote(string note) => EmitSignal(SignalName.StationServiceNoteUpdated, note);
+
+    // Signal event
+    [Signal]
+    public delegate void SignalSendedEventHandler(int signal);
+    public void SendSignal(int signal) => EmitSignal(SignalName.SignalSended, signal);
 }
 

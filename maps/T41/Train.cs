@@ -24,6 +24,7 @@ public partial class Train : Node3D
 
     public TrainMotion Motion { get; set; } = TrainMotion.Stop;
     public ComputerData ComputerData { get; set; } = new ComputerData();
+    public Wagon? ConnectedWagon { get; set; } = null;
     public Task? CurrentTask { get; set; } = null;
 
     private AudioStreamPlayer3D dingDongSound = null!;

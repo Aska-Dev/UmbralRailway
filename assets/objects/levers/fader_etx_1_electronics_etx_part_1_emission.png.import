@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv27i43emd8sk"
-path.s3tc="res://.godot/imported/fabric_tx_1.png-9c7249b7b5ed0c888d0b821df36cd4e9.s3tc.ctex"
+uid="uid://e2wrijxlb2w6"
+path.s3tc="res://.godot/imported/fader_etx_1_electronics_etx_part_1_emission.png-fb3e7acee0ac39f677dda3410f74c6df.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "f7e1266ea99f54b63724f68404e93995"
+}
 
 [deps]
 
-source_file="res://assets/textures/fabric_tx_1.png"
-dest_files=["res://.godot/imported/fabric_tx_1.png-9c7249b7b5ed0c888d0b821df36cd4e9.s3tc.ctex"]
+source_file="res://assets/objects/levers/fader_etx_1_electronics_etx_part_1_emission.png"
+dest_files=["res://.godot/imported/fader_etx_1_electronics_etx_part_1_emission.png-fb3e7acee0ac39f677dda3410f74c6df.s3tc.ctex"]
 
 [params]
 

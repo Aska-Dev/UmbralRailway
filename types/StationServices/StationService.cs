@@ -17,4 +17,20 @@ public partial class StationService : Resource
             return;
         }
     }
+
+    protected void SendMessageToInterface(string message, float hintTextResetTime = 3f, bool resetHint = true)
+    {
+        TrainEventBus.Instance.UpdateStationServiceNote(message);
+
+        UiEventBus.Instance.ShowHintText("Station Service Message:\n" + message);
+        var tree = Engine.GetMainLoop() as SceneTree;
+
+        if(resetHint)
+        {
+            tree!.CreateTimer(hintTextResetTime).Timeout += () =>
+            {
+                UiEventBus.Instance.ClearHintText();
+            };
+        }
+    }
 }
