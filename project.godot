@@ -23,7 +23,6 @@ PlayerEventBus="*uid://cmolnfx16i32s"
 TrainEventBus="*uid://cwruwpp5sc10m"
 GlobalEventBus="*uid://c0hit5qo7023r"
 LocationRegistry="*uid://dkroi4q846pqt"
-TaskRegistry="uid://cl4q3uiw2k2ak"
 
 [display]
 

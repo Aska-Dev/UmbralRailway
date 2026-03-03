@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c62m0v5uj128o"]
+
+[ext_resource type="Script" uid="uid://bxxbhvxy3igdr" path="res://environment/FuseBox/FuseBoxMinigameUiGameController.cs" id="1_uqt5f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bm4q"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.8001019, 0.8001019, 0.8001019, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="FuseBoxMinigameUi" type="Control" unique_id=1341358082]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -852.0
+offset_bottom = -348.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uqt5f")
+
+[node name="Panel" type="Panel" parent="." unique_id=1369674395]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bm4q")

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cke870j85om4i"]
+
+[ext_resource type="PackedScene" uid="uid://c3aaoq4qn54mx" path="res://assets/objects/generator/generator_1.fbx" id="1_1kmlb"]
+[ext_resource type="PackedScene" uid="uid://bm4yugww2fdbo" path="res://assets/objects/pipes/pipe_1.glb" id="2_1goja"]
+[ext_resource type="Script" uid="uid://dr13u0cye1k2i" path="res://assets/objects/generator/Generator.cs" id="2_udsl3"]
+[ext_resource type="PackedScene" uid="uid://dxwgrtk3hc136" path="res://assets/objects/pipes/pipe_2.glb" id="3_udsl3"]
+[ext_resource type="AudioStream" uid="uid://dc8ued4chruh7" path="res://assets/sounds/generator/generatorHumming.mp3" id="4_74fid"]
+[ext_resource type="AudioStream" uid="uid://b2yrfjh3xd6jj" path="res://assets/sounds/generator/generatorStartup.mp3" id="5_1goja"]
+[ext_resource type="AudioStream" uid="uid://bjndaam61oefa" path="res://assets/sounds/generator/powerDown.mp3" id="7_74fid"]
+[ext_resource type="PackedScene" uid="uid://dncnoduivcjbf" path="res://environment/FuseBox/FuseBox.tscn" id="8_ln2mc"]
+[ext_resource type="PackedScene" uid="uid://bj53lk5ytwt7t" path="res://assets/objects/WallPiece/wall_box_3.glb" id="8_q7jff"]
+[ext_resource type="PackedScene" uid="uid://cnd1ih4cqdryy" path="res://assets/objects/WallPiece/wall_box_2.glb" id="9_2syi0"]
+[ext_resource type="PackedScene" uid="uid://dldwijpc6ufey" path="res://assets/objects/pipes/pipe_1_ancle.glb" id="11_h87uj"]
+[ext_resource type="PackedScene" uid="uid://dxd2br8ugt80e" path="res://assets/objects/pipes/pipe_1_short.glb" id="12_1csh0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ln2mc"]
+size = Vector3(3.378418, 1.5654297, 1)
+
+[node name="T41Generator" type="Node3D" unique_id=47455917]
+
+[node name="generator" parent="." unique_id=2105781970 instance=ExtResource("1_1kmlb")]
+transform = Transform3D(-0.8, 0, -1.2079664e-07, 0, 0.8, 0, 1.2079664e-07, 0, -0.8, -3.5960917, -0.0033837706, 1.530049)
+script = ExtResource("2_udsl3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="generator" unique_id=1827999070]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="generator/StaticBody3D" unique_id=2080636389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012207031, 1.0068135, 0)
+shape = SubResource("BoxShape3D_ln2mc")
+
+[node name="pipe_12" parent="generator" unique_id=1575574199 instance=ExtResource("2_1goja")]
+transform = Transform3D(-1.25, 0, 1.8874475e-07, 0, 1.25, 0, -1.8874475e-07, 0, -1.25, 0.376482, 1.7895284, -0.33268642)
+
+[node name="pipe_22" parent="generator" unique_id=390059726 instance=ExtResource("3_udsl3")]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1, 0.7288246, 1.7770185, -0.33041358)
+
+[node name="GeneratorHumming" type="AudioStreamPlayer3D" parent="generator" unique_id=230189849]
+transform = Transform3D(-1.25, 0, 1.8874475e-07, 0, 1.25, 0, -1.8874475e-07, 0, -1.25, 0.23538208, 1.0918757, -1.4971547)
+stream = ExtResource("4_74fid")
+volume_db = -10.0
+unit_size = 50.0
+max_db = -5.0
+autoplay = true
+max_distance = 10.0
+area_mask = 0
+emission_angle_enabled = true
+emission_angle_degrees = 14.8
+emission_angle_filter_attenuation_db = 0.0
+
+[node name="GeneratorStartup" type="AudioStreamPlayer3D" parent="generator" unique_id=1708558628]
+transform = Transform3D(-1.25, 0, 1.8874475e-07, 0, 1.25, 0, -1.8874475e-07, 0, -1.25, 0.23538208, 1.0918757, -1.4971547)
+stream = ExtResource("5_1goja")
+volume_db = -5.0
+unit_size = 50.0
+max_db = -5.0
+max_distance = 10.0
+area_mask = 0
+emission_angle_enabled = true
+emission_angle_degrees = 14.8
+emission_angle_filter_attenuation_db = 0.0
+
+[node name="GeneratorPowerDown" type="AudioStreamPlayer" parent="generator" unique_id=786562054]
+stream = ExtResource("7_74fid")
+pitch_scale = 0.9
+
+[node name="wall_box_32" parent="." unique_id=1949591024 instance=ExtResource("8_q7jff")]
+transform = Transform3D(-0.8, 0, -1.2079664e-07, 0, 0.8, 0, 1.2079664e-07, 0, -0.8, -2.288252, 1.8737516, 1.9238838)
+
+[node name="wall_box_22" parent="." unique_id=1695971177 instance=ExtResource("9_2syi0")]
+transform = Transform3D(-1.04, 0, -1.5703563e-07, 0, 1.04, 0, 1.5703563e-07, 0, -1.04, -4.6632314, 1.8737516, 1.90741)
+
+[node name="FuseBox" parent="." unique_id=511594781 instance=ExtResource("8_ln2mc")]
+transform = Transform3D(-0.8, 0, -1.2079664e-07, 0, 0.8, 0, 1.2079664e-07, 0, -0.8, -1.8370258, 1.900935, 1.9208585)
+
+[node name="CablePipeAncle" parent="FuseBox" unique_id=547215570 instance=ExtResource("11_h87uj")]
+transform = Transform3D(-3.4969112e-08, -0.8000001, 5.684342e-14, 0.8000001, -3.4969112e-08, -1.1293773e-21, 8.4703295e-22, 5.684342e-14, 0.8000001, 0.24878001, -0.67378736, 0.18211794)
+
+[node name="pipe_1_short2" parent="FuseBox/CablePipeAncle" unique_id=1754467357 instance=ExtResource("12_1csh0")]
+transform = Transform3D(0.99964917, 0.02647354, -3.997394e-09, -0.02647354, 0.99964917, 5.2978066e-11, 3.9973957e-09, 5.286438e-11, 0.99999964, -0.031510353, -1.1714716, 2.3841858e-07)

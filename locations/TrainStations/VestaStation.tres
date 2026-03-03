@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="TrainStation" format=3 uid="uid://b0e8nian6odo5"]
+
+[ext_resource type="Script" uid="uid://bw85wepeibe3y" path="res://types/StationData.cs" id="1_f418m"]
+[ext_resource type="Script" uid="uid://11crlnenwxph" path="res://types/Locations/Neighbour.cs" id="2_rd4l5"]
+[ext_resource type="Script" uid="uid://cuoiqxvvlibbn" path="res://types/Locations/TrainStation.cs" id="3_tla0f"]
+
+[sub_resource type="Resource" id="Resource_kydbg"]
+script = ExtResource("1_f418m")
+Temperature = -177
+metadata/_custom_type_script = "uid://bw85wepeibe3y"
+
+[sub_resource type="Resource" id="Resource_yxls1"]
+script = ExtResource("2_rd4l5")
+LocationId = &"JunctionCargoGatewayVesta"
+Distance = 1250
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[sub_resource type="Resource" id="Resource_f418m"]
+script = ExtResource("2_rd4l5")
+LocationId = &"SteelforgeStation"
+Distance = 1000
+Direction = 3
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[resource]
+script = ExtResource("3_tla0f")
+Name = "Vesta Station"
+Id = "f101"
+Data = SubResource("Resource_kydbg")
+HasTurntable = true
+LocationId = &"VestaStation"
+Neighbours = [SubResource("Resource_yxls1"), SubResource("Resource_f418m")]
+metadata/_custom_type_script = "uid://cuoiqxvvlibbn"

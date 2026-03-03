@@ -46,4 +46,9 @@ public partial class UiEventBus : Node
     public delegate void ManualsToggledEventHandler(bool isOpen);
     public void ToggleManuals(bool isOpen) => EmitSignal(SignalName.ManualsToggled, isOpen);
 
+    // Map Events
+    [Signal]
+    public delegate void MapToggledEventHandler(bool isOpen);
+    public void ToggleMap(bool isOpen) => EmitSignal(SignalName.MapToggled, isOpen);
 }
+

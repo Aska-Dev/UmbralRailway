@@ -32,4 +32,9 @@ public partial class PlayerEventBus : Node
     [Signal]
     public delegate void PickedUpDiskFromComputerEventHandler();
     public void PickUpDiskFromComputer() => EmitSignal(SignalName.PickedUpDiskFromComputer);
+
+    // Camera Evets
+    [Signal]
+    public delegate void PlayerCameraSetToCurrentEventHandler();
+    public void SetPlayerCameraToCurrent() => EmitSignal(SignalName.PlayerCameraSetToCurrent);
 }

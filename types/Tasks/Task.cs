@@ -4,34 +4,55 @@ using System;
 [GlobalClass]
 public partial class Task : Resource
 {
-    [Export]
-    public int TaskNumber { get; set; } = 0;
+    [Signal]
+    public delegate void TaskCompletedEventHandler(TaskBranch completedBranch);
 
     [Export]
-    public string Title { get; set; } = string.Empty;
+    public TaskBranch[] Branches { get; set; } = Array.Empty<TaskBranch>();
 
     [Export]
-    public bool Official { get; set; } = true;
+    public TaskAssignmentAction[] AssignmentActions { get; set; } = Array.Empty<TaskAssignmentAction>();
 
-    [Export(PropertyHint.MultilineText)]
-    public string Description { get; set; } = string.Empty;
 
-    [Export]
-    public Task? NextTask { get; set; }
+    private bool hasCompletedBranch = false;
 
-    [Export]
-    public Task[] AlternativeTasks { get; set; } = [];
-
-    private bool _isCompleted = false;
-
-    public void Complete()
+    public void Activate()
     {
-        if(NextTask is null || _isCompleted )
+        foreach (var branch in Branches)
+        {
+            branch.Activate(OnBranchCompleted);
+        }
+
+        foreach (var action in AssignmentActions)
+        {
+            action.Execute();
+        }
+    }
+
+    public void Deactivate()
+    {
+        foreach (var branch in Branches)
+        {
+            branch.Deactivate();
+        }
+    }
+
+    private void OnBranchCompleted(TaskBranch branch)
+    {
+        if (hasCompletedBranch)
         {
             return;
         }
 
-        TrainEventBus.Instance.AssignNewTask(NextTask);
-        _isCompleted = true;
+        hasCompletedBranch = true;
+        Deactivate();
+
+        if (branch.NextTask is null)
+        {
+            GD.PushWarning($"Branch in Task '{ResourceName}' hat keinen Folgetask gesetzt. Die Taskkette endet hier.");
+            return;
+        }
+
+        EmitSignalTaskCompleted(branch);
     }
 }

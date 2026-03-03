@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="Task" format=3 uid="uid://bronlxbr4a8jf"]
+
+[ext_resource type="Script" uid="uid://c036x6he6x83d" path="res://types/NoteContent.cs" id="1_5h7km"]
+[ext_resource type="Resource" uid="uid://dmysbv8sjvbej" path="res://Tasks/1/1.CheckPowerSupplyAtGehennaStationAndReply.tres" id="1_550o3"]
+[ext_resource type="Script" uid="uid://h07fi318gbhv" path="res://types/Tasks/Task.cs" id="1_bvtvv"]
+[ext_resource type="Resource" uid="uid://hckmtw24ybvk" path="res://locations/TrainStations/GehennaStation.tres" id="2_550o3"]
+[ext_resource type="Script" uid="uid://cup42k3nm3hdn" path="res://types/Tasks/AssignmentActions/PrintMessageOnAssignment.cs" id="2_mci4w"]
+[ext_resource type="Script" uid="uid://bs85oiiu7jwbs" path="res://types/Tasks/Requirements/ReachingLocationRequirement.cs" id="3_5h7km"]
+[ext_resource type="Script" uid="uid://d6q3ktbb61ut" path="res://types/Tasks/TaskBranch.cs" id="4_mci4w"]
+
+[sub_resource type="Resource" id="Resource_noe0a"]
+script = ExtResource("1_5h7km")
+Title = "1 - Travel to Gehenna Station"
+Content = "Please follow the following steps precisely:
+
+Navigational information: Facing east
+
+1. Make yourself familar with the train.
+2. Read the manuals to learn about how to operate the train.
+3. Drive forward to reach the next train station: Gehenna Station
+
+"
+metadata/_custom_type_script = "uid://c036x6he6x83d"
+
+[sub_resource type="Resource" id="Resource_3mv2h"]
+script = ExtResource("2_mci4w")
+Message = SubResource("Resource_noe0a")
+metadata/_custom_type_script = "uid://cup42k3nm3hdn"
+
+[sub_resource type="Resource" id="Resource_llu7p"]
+script = ExtResource("3_5h7km")
+Location = ExtResource("2_550o3")
+metadata/_custom_type_script = "uid://bs85oiiu7jwbs"
+
+[sub_resource type="Resource" id="Resource_v2d7u"]
+script = ExtResource("4_mci4w")
+NextTask = ExtResource("1_550o3")
+Requirements = [SubResource("Resource_llu7p")]
+metadata/_custom_type_script = "uid://d6q3ktbb61ut"
+
+[resource]
+script = ExtResource("1_bvtvv")
+Branches = [SubResource("Resource_v2d7u")]
+AssignmentActions = [SubResource("Resource_3mv2h")]
+metadata/_custom_type_script = "uid://h07fi318gbhv"

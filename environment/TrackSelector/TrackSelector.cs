@@ -71,7 +71,7 @@ public partial class TrackSelector : StaticBody3D
 
 	private void OnTrainLocationTravelled(Location location)
 	{
-		_isActive = location is Junction;
+		_isActive = location is Junction || (location is TrainStation station && station.HasTurntable);
 
 		if(!_isActive)
 		{

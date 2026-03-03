@@ -20,7 +20,7 @@ public partial class Note : StaticBody3D, IEntity
         var note = GetTree().GetFirstNodeInGroup("note") as ReadingNote;
         if (note is not null)
         {
-            note.SetContent(Title, Content);
+            note.SetContent(new NoteContent(Title, Content));
         }
     }
 }

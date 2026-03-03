@@ -32,6 +32,7 @@ public partial class Player : CharacterBody3D, IEntity
         PlayerEventBus.Instance.ItemPickedUp += OnItemPickedUp;
         PlayerEventBus.Instance.ItemRemoved += OnItemRemoved;
         PlayerEventBus.Instance.PickedUpDiskFromComputer += PickUpDiskFromComputer;
+        PlayerEventBus.Instance.PlayerCameraSetToCurrent += () => camera.Current = true;
     }
 
     public override void _Input(InputEvent @event)

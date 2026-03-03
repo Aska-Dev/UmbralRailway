@@ -27,6 +27,8 @@ public partial class SignalStation : Node3D, IEntity
 		clickSound = GetNode<AudioStreamPlayer>("ClickSound");
 		successSound = GetNode<AudioStreamPlayer>("SuccessSound");
 		signalLight = GetNode<OmniLight3D>("light");
+
+		TrainEventBus.Instance.PowerChanged += OnPowerChanged;
     }
 
     public override void _Input(InputEvent @event)
@@ -35,10 +37,7 @@ public partial class SignalStation : Node3D, IEntity
 		{
 			if(@event.IsActionPressed(Inputs.Interact))
 			{
-				isActive = false;
-				display.Visible = false;
-				PlayerEventBus.Instance.SetPlayerInputEnabled(true);
-				UiEventBus.Instance.ClearHintText();
+				LeaveStation();
             }
 
 			if(@event.IsActionPressed(Inputs.MoveRight))
@@ -67,13 +66,23 @@ public partial class SignalStation : Node3D, IEntity
 		UiEventBus.Instance.ShowHintText("Press [A] or [D] to cycle through signals\nPress [SPACE] to confirm signal\n\nPress [F] to leave the station");
     }
 
-	private void SendSignal()
+	private void OnPowerChanged(bool hasPower)
+	{
+		if(!hasPower && isActive)
+		{
+			LeaveStation();
+        }
+
+		Components.Get<InteractionComponent>().IsActive = hasPower;
+    }
+
+    private void SendSignal()
 	{
 		TrainEventBus.Instance.SendSignal(signal);
         successSound.Play();
 
 		signalLight.Visible = true;
-		GetTree().CreateTimer(0.25f).Timeout += () => signalLight.Visible = false;
+		GetTree().CreateTimer(0.5f).Timeout += () => signalLight.Visible = false;
     }
 
 	private void CycleRight()
@@ -106,5 +115,13 @@ public partial class SignalStation : Node3D, IEntity
 		turner.RotationDegrees = new Vector3(0, rotationAngle, 0);
 
 		clickSound.Play();
+    }
+
+	private void LeaveStation()
+	{
+        isActive = false;
+        display.Visible = false;
+        PlayerEventBus.Instance.SetPlayerInputEnabled(true);
+        UiEventBus.Instance.ClearHintText();
     }
 }

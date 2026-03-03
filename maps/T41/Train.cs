@@ -18,14 +18,17 @@ public partial class Train : Node3D
 {
 	[Export]
 	public Location Location { get; set; } = null!;
-
+    
     [Export]
     public Directions FacingDirection { get; set; } = Directions.East;
+
+    [Export]
+    public Task InitialTask { get; set; } = null!;
 
     public TrainMotion Motion { get; set; } = TrainMotion.Stop;
     public ComputerData ComputerData { get; set; } = new ComputerData();
     public Wagon? ConnectedWagon { get; set; } = null;
-    public Task? CurrentTask { get; set; } = null;
+    public TaskManager TaskManager { get; set; } = new TaskManager();
 
     private AudioStreamPlayer3D dingDongSound = null!;
     private AudioStreamPlayer trainDriving = null!;
@@ -41,7 +44,6 @@ public partial class Train : Node3D
         TrainEventBus.Instance.TrainDirectionChanged += (TrainDirectionChangedEventArgs args) => FacingDirection = args.NewDirection;
         TrainEventBus.Instance.TrainNetworkConnectionChanged += (bool isConnected) => ComputerData.IsConnectedToNetwork = isConnected;
         TrainEventBus.Instance.TrainFloppyDiscUpdated += (FloppyDisk? floppyDisk) => ComputerData.InsertedFloppyDisc = floppyDisk;
-        TrainEventBus.Instance.NewTaskAssigned += (Task task) => CurrentTask = task;
 
         // Get sound players
         dingDongSound = GetNode<AudioStreamPlayer3D>("Sounds/DingDong");
@@ -50,6 +52,8 @@ public partial class Train : Node3D
         trainStarting = GetNode<AudioStreamPlayer>("Sounds/TrainStarting");
 
         TrainEventBus.Instance.TravelToLocation(Location);
+
+        TaskManager.Assign(InitialTask);
     }
 
     public override void _Process(double delta)

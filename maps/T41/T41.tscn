@@ -3,14 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://djr8v8y7omyla" path="res://player/Player.tscn" id="1_5vguf"]
 [ext_resource type="Script" uid="uid://ceajaytcnhfor" path="res://maps/T41/Train.cs" id="1_8vtlj"]
 [ext_resource type="Texture2D" uid="uid://bv8budm08hmt0" path="res://assets/textures/metal_floor_tx_1.png" id="1_lvpnt"]
-[ext_resource type="Resource" uid="uid://ddk6fccs7ogu8" path="res://locations/TrainStations/CargoStation.tres" id="2_35alf"]
+[ext_resource type="Resource" uid="uid://cjwl3vw07qg5c" path="res://locations/Special/StartGameLocation.tres" id="2_3u36e"]
 [ext_resource type="Texture2D" uid="uid://j8nrae6mc6wh" path="res://assets/textures/metal_wall_1.png" id="3_3knrm"]
-[ext_resource type="AudioStream" uid="uid://dc8ued4chruh7" path="res://assets/sounds/generator/generatorHumming.mp3" id="3_cwvne"]
+[ext_resource type="Resource" uid="uid://bronlxbr4a8jf" path="res://Tasks/0/0.TravelToGehennaStation.tres" id="3_3u36e"]
 [ext_resource type="PackedScene" uid="uid://rgyekkdw0a7g" path="res://assets/objects/lamps/lamp_0.glb" id="3_e1584"]
 [ext_resource type="AudioStream" uid="uid://5ae62y02m0ai" path="res://assets/sounds/dings and dongs/electricHumDoorSound.mp3" id="3_m00bt"]
 [ext_resource type="AudioStream" uid="uid://l3pmx1bi07hn" path="res://assets/sounds/train/trainStopping.mp3" id="4_jxd3y"]
 [ext_resource type="Texture2D" uid="uid://biwwoai7wijqt" path="res://assets/textures/metal_wall_tx_1.png" id="4_olkot"]
-[ext_resource type="PackedScene" uid="uid://c3aaoq4qn54mx" path="res://assets/objects/generator/generator_1.fbx" id="5_8sdm8"]
 [ext_resource type="AudioStream" uid="uid://1bc1evl2dfao" path="res://assets/sounds/train/trainStarting.mp3" id="5_m00bt"]
 [ext_resource type="PackedScene" uid="uid://cbr383un2m76r" path="res://assets/objects/machinery1/machinery_1.fbx" id="6_reafd"]
 [ext_resource type="Texture2D" uid="uid://bnk71c6dxmdj5" path="res://assets/textures/metal_1.png" id="7_u04yd"]
@@ -22,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dxd2br8ugt80e" path="res://assets/objects/pipes/pipe_1_short.glb" id="10_5wkdr"]
 [ext_resource type="PackedScene" uid="uid://dldwijpc6ufey" path="res://assets/objects/pipes/pipe_1_ancle.glb" id="11_bqo5a"]
 [ext_resource type="PackedScene" uid="uid://bc8rn1mpp3uv2" path="res://environment/manuals/manuals.tscn" id="11_hwucc"]
-[ext_resource type="PackedScene" uid="uid://cfvlaj3gs1ohl" path="res://assets/objects/door/door.tscn" id="12_hwucc"]
+[ext_resource type="Script" uid="uid://cjhwyvms35qny" path="res://maps/T41/Components/T41TrainLight.cs" id="12_35alf"]
 [ext_resource type="PackedScene" uid="uid://bm4yugww2fdbo" path="res://assets/objects/pipes/pipe_1.glb" id="14_63lg1"]
 [ext_resource type="PackedScene" uid="uid://c5wpnqmbkk317" path="res://environment/ControlPanel/ControlPanel.tscn" id="15_qo0uu"]
 [ext_resource type="PackedScene" uid="uid://bmu5pbrbiiids" path="res://assets/objects/WallPiece/wall_peace_1.glb" id="19_qwrru"]
@@ -36,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://bhfrkxcnhynga" path="res://environment/InWorldItems/InWorldFloppyDisc.tscn" id="30_nfn4q"]
 [ext_resource type="PackedScene" uid="uid://d2cxb3bl87v82" path="res://environment/QuestNote/CurrentTaskNote.tscn" id="31_0pi36"]
 [ext_resource type="PackedScene" uid="uid://iq04sxfikson" path="res://environment/First Aid Cabinet/MedCabinet.tscn" id="36_7lptt"]
+[ext_resource type="PackedScene" uid="uid://cke870j85om4i" path="res://maps/T41/Components/T41Generator.tscn" id="36_35alf"]
+[ext_resource type="PackedScene" uid="uid://cpk2lr04qm42c" path="res://maps/T41/Components/T41WallBack.tscn" id="37_35alf"]
 [ext_resource type="PackedScene" uid="uid://3lmwlclamvk5" path="res://environment/ServiceInterface/ServiceInterface.tscn" id="38_3u36e"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_5x3um"]
@@ -96,9 +97,6 @@ sky = SubResource("Sky_govdy")
 ambient_light_energy = 0.5
 tonemap_mode = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8sdm8"]
-size = Vector3(3.378418, 1.5654297, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e1nq"]
 albedo_texture = ExtResource("7_u04yd")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
@@ -141,7 +139,8 @@ size = Vector3(0.05, 2, 2)
 
 [node name="T41" type="Node3D" unique_id=755960101]
 script = ExtResource("1_8vtlj")
-Location = ExtResource("2_35alf")
+Location = ExtResource("2_3u36e")
+InitialTask = ExtResource("3_3u36e")
 
 [node name="Sounds" type="Node" parent="." unique_id=1013667133]
 
@@ -226,19 +225,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3592007, 2.0334404)
 shape = SubResource("ConcavePolygonShape3D_olkot")
 debug_fill = false
 
-[node name="wallBack" type="StaticBody3D" parent="Walls and Floors" unique_id=2005519161]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.090743, 0.6778488, -0.18056226)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls and Floors/wallBack" unique_id=1689127921]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3592007, 2.0334404)
-material_override = SubResource("StandardMaterial3D_8sdm8")
-mesh = SubResource("BoxMesh_olkot")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls and Floors/wallBack" unique_id=1469871783]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3592007, 2.0334404)
-shape = SubResource("ConcavePolygonShape3D_8sdm8")
-debug_fill = false
-
 [node name="front" type="Node3D" parent="Walls and Floors" unique_id=171565903]
 
 [node name="wallBack" type="StaticBody3D" parent="Walls and Floors/front" unique_id=506426641]
@@ -292,42 +278,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0008416176, 3.454366, 0)
 light_energy = 2.0
 shadow_enabled = true
 omni_range = 8.271481
+script = ExtResource("12_35alf")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=691998413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9549038, 3.5441525, 0)
 omni_range = 3.5093327
+script = ExtResource("12_35alf")
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1323429568]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.292059, 3.5441525, 0)
 omni_range = 3.4696562
-
-[node name="generator" parent="." unique_id=2105781970 instance=ExtResource("5_8sdm8")]
-transform = Transform3D(-0.8, 0, -1.2079664e-07, 0, 0.8, 0, 1.2079664e-07, 0, -0.8, -3.5960917, -0.0033837706, 1.530049)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="generator" unique_id=900273996]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="generator/StaticBody3D" unique_id=1424875318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012207031, 1.0068135, 0)
-shape = SubResource("BoxShape3D_8sdm8")
-
-[node name="pipe_12" parent="generator" unique_id=1575574199 instance=ExtResource("14_63lg1")]
-transform = Transform3D(-1.25, 0, 1.8874475e-07, 0, 1.25, 0, -1.8874475e-07, 0, -1.25, 0.376482, 1.7895284, -0.33268642)
-
-[node name="pipe_22" parent="generator" unique_id=390059726 instance=ExtResource("8_wl1f4")]
-transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1, 0.7288246, 1.7770185, -0.33041358)
-
-[node name="GeneratorHumming" type="AudioStreamPlayer3D" parent="generator" unique_id=1731064341]
-transform = Transform3D(-1.25, 0, 1.8874475e-07, 0, 1.25, 0, -1.8874475e-07, 0, -1.25, 0.23538208, 1.0918757, -1.4971547)
-stream = ExtResource("3_cwvne")
-volume_db = -10.0
-unit_size = 50.0
-max_db = -5.0
-autoplay = true
-max_distance = 10.0
-area_mask = 0
-emission_angle_enabled = true
-emission_angle_degrees = 14.8
-emission_angle_filter_attenuation_db = 0.0
+script = ExtResource("12_35alf")
 
 [node name="machinery_1" parent="." unique_id=1022025769 instance=ExtResource("6_reafd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.135973, 3.4356198, -1.9842024)
@@ -402,9 +363,6 @@ transform = Transform3D(0.051716138, 0, -0.10828407, 0, 0.12, 0, 0.10828407, 0, 
 
 [node name="Manuals" parent="shelf" unique_id=2037573794 instance=ExtResource("11_hwucc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.7067676, 0.7561603, 0.08235383)
-
-[node name="Door" parent="." unique_id=1811411094 instance=ExtResource("12_hwucc")]
-transform = Transform3D(-5.2453668e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.2453668e-08, -4.965437, -0.030768633, -0.087049484)
 
 [node name="wall_peace_12" parent="." unique_id=355881411 instance=ExtResource("19_qwrru")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.3918044, 1.58438, 1.9956031)
@@ -491,3 +449,8 @@ transform = Transform3D(-1.7484556e-08, 0, 0.6, 0, 0.6, 0, -0.4, 0, -2.6226834e-
 
 [node name="ServiceInterface" parent="." unique_id=683056644 instance=ExtResource("38_3u36e")]
 transform = Transform3D(-2.185569e-08, -3.785517e-08, 1, -0.8660254, 0.49999994, 0, -0.49999994, -0.8660254, -4.371139e-08, 3.6279187, 1.2612627, 2.1286526)
+
+[node name="T41WallBack" parent="." unique_id=771171105 instance=ExtResource("37_35alf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.077315, -0.04046774, 0)
+
+[node name="T41Generator" parent="." unique_id=47455917 instance=ExtResource("36_35alf")]

@@ -28,14 +28,14 @@ metadata/_custom_type_script = "uid://bw85wepeibe3y"
 
 [sub_resource type="Resource" id="Resource_iyuqf"]
 script = ExtResource("2_b1v5u")
-LocationId = &"Station.A"
+LocationId = &"GehennaStation"
 Distance = 1000
 Direction = 2
 metadata/_custom_type_script = "uid://11crlnenwxph"
 
 [sub_resource type="Resource" id="Resource_s416y"]
 script = ExtResource("2_b1v5u")
-LocationId = &"JunctionBCD"
+LocationId = &"JunctionCargoGatewayVesta"
 Distance = 1000
 Direction = 1
 metadata/_custom_type_script = "uid://11crlnenwxph"
@@ -45,6 +45,6 @@ script = ExtResource("1_r2aq7")
 Name = "Cargo Station"
 Id = "cg00"
 Data = SubResource("Resource_b1v5u")
-LocationId = &"Station.B"
+LocationId = &"CargoStation"
 Neighbours = [SubResource("Resource_iyuqf"), SubResource("Resource_s416y")]
 metadata/_custom_type_script = "uid://cuoiqxvvlibbn"

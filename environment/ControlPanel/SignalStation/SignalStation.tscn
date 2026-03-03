@@ -10,6 +10,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_2iv5i"]
 font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ivfdm"]
 size = Vector3(0.22375488, 0.042793274, 0.16529846)
@@ -56,6 +57,7 @@ max_polyphony = 3
 [node name="SuccessSound" type="AudioStreamPlayer" parent="." unique_id=1906475295]
 stream = ExtResource("7_pl333")
 volume_db = -2.0
+pitch_scale = 0.5
 
 [node name="light" type="OmniLight3D" parent="." unique_id=470438404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050413184, 0.11719233, 0.036333613)

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="TrainStation" format=3 uid="uid://dxkwft2q1wf7b"]
+
+[ext_resource type="Script" uid="uid://gubyngmwyqin" path="res://types/StationServices/SystemDiagnosis.cs" id="1_c6yrg"]
+[ext_resource type="Script" uid="uid://bw85wepeibe3y" path="res://types/StationData.cs" id="2_dliag"]
+[ext_resource type="Script" uid="uid://11crlnenwxph" path="res://types/Locations/Neighbour.cs" id="3_dgv1g"]
+[ext_resource type="Script" uid="uid://cuoiqxvvlibbn" path="res://types/Locations/TrainStation.cs" id="4_g7bnt"]
+
+[sub_resource type="Resource" id="Resource_p5f0k"]
+script = ExtResource("1_c6yrg")
+metadata/_custom_type_script = "uid://gubyngmwyqin"
+
+[sub_resource type="Resource" id="Resource_pmlxf"]
+script = ExtResource("2_dliag")
+Temperature = -156
+WorkingPowerGenerators = 1
+Services = [SubResource("Resource_p5f0k")]
+metadata/_custom_type_script = "uid://bw85wepeibe3y"
+
+[sub_resource type="Resource" id="Resource_3dabb"]
+script = ExtResource("3_dgv1g")
+LocationId = &"VestaStation"
+Distance = 1000
+metadata/_custom_type_script = "uid://11crlnenwxph"
+
+[resource]
+script = ExtResource("4_g7bnt")
+Name = "Steelforge Station"
+Id = "f0rG3"
+Data = SubResource("Resource_pmlxf")
+LocationId = &"SteelforgeStation"
+Neighbours = [SubResource("Resource_3dabb")]
+metadata/_custom_type_script = "uid://cuoiqxvvlibbn"

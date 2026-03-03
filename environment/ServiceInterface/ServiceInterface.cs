@@ -48,6 +48,8 @@ public partial class ServiceInterface : StaticBody3D, IEntity
 		PlayerEventBus.Instance.UpdateEquippedItem += OnPlayerItemEquipped;
 		TrainEventBus.Instance.StationServiceRequestCompleted += CompleteStationService;
 		TrainEventBus.Instance.StationServiceNoteUpdated += (string message) => note.Text = message;
+
+		TrainEventBus.Instance.PowerChanged += OnPowerChanged;
     }
 
     public override void _Input(InputEvent @event)
@@ -148,6 +150,20 @@ public partial class ServiceInterface : StaticBody3D, IEntity
 		isActive = false;
 		PlayerEventBus.Instance.SetPlayerInputEnabled(true);
 		UiEventBus.Instance.ClearHintText();
+    }
+
+	private void OnPowerChanged(bool hasPower)
+	{
+		if(!hasPower && isActive)
+		{
+			OnStopInteract();
+        }
+
+		Components.Get<InteractionComponent>().IsActive = hasPower;
+
+		title.Visible = hasPower;
+		selectedService.Visible = hasPower;
+		note.Visible = hasPower;
     }
 
 	private void OnConnectionChanged(bool connectionStatus)

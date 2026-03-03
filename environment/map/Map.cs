@@ -9,4 +9,9 @@ public partial class Map : StaticBody3D, IEntity
 	{
 		Components = new ComponentList(this);
     }
+
+	public void OnInteract()
+	{
+		UiEventBus.Instance.ToggleMap(true);
+    }
 }

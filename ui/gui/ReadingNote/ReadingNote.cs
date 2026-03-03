@@ -1,7 +1,5 @@
 using DungeonLetter.Common;
 using Godot;
-using System;
-using System.Security.Cryptography.X509Certificates;
 
 public partial class ReadingNote : Control
 {
@@ -28,20 +26,10 @@ public partial class ReadingNote : Control
         }
     }
 
-    public void SetNoteContentFromTask(Task task)
-    {
-        title.Text = $"---### Task {task.TaskNumber} ###---";
-
-        var objective = $"Objective:\n{task.Title}";
-        var combinedContent = $"{objective}\n\n{task.Description}";
-
-        content.Text = combinedContent;
-    }
-
-    public void SetContent(string title, string content)
+    public void SetContent(NoteContent content)
     {         
-        this.title.Text = title;
-        this.content.Text = content;
+        this.title.Text = content.Title;
+        this.content.Text = content.Content;
     }
 }
  

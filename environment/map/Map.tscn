@@ -30,3 +30,5 @@ shape = SubResource("ConcavePolygonShape3D_0vfmq")
 script = ExtResource("3_h0idj")
 InteractionMessage = "Press [F] to look at the map"
 metadata/_custom_type_script = "uid://df54utlaa5rxv"
+
+[connection signal="OnInteraction" from="InteractionComponent" to="." method="OnInteract"]

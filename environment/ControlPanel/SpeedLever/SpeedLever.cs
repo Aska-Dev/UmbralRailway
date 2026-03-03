@@ -28,6 +28,7 @@ public partial class SpeedLever : Node3D, IEntity
 
         // Connect to TrainEventBus to listen for motion changes
 		TrainEventBus.Instance.TrainMotionChanged += OnTrainMotionChanged;
+		TrainEventBus.Instance.PowerChanged += OnPowerChanged;
     }
 
     public override void _Input(InputEvent @event)
@@ -88,5 +89,20 @@ public partial class SpeedLever : Node3D, IEntity
         }
 
 		buttons.UpdateButtonLights(motion);
+    }
+
+	private void OnPowerChanged(bool hasPower)
+	{
+		if (!hasPower)
+		{
+			if(_isActive)
+			{
+				SetInactive();
+			}
+
+            TrainEventBus.Instance.ChangeTrainMotion(TrainMotion.Stop);
+        }
+
+		Components.Get<InteractionComponent>().IsActive = hasPower;
     }
 }

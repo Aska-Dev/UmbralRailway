@@ -9,5 +9,19 @@ public partial class CeilingFan : Node3D
 	{
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		animationPlayer.Play("active");
+
+		TrainEventBus.Instance.PowerChanged += OnPowerChanged;
+    }
+
+	private void OnPowerChanged(bool hasPower)
+	{
+		if(hasPower)
+		{
+			animationPlayer.Play("active");
+		}
+		else
+		{
+			animationPlayer.Stop();
+		}
     }
 }

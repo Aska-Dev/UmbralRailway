@@ -9,10 +9,10 @@ public partial class Printer : Node3D
 	{
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
-		TrainEventBus.Instance.NewTaskAssigned += OnNewTaskAssiged;
+		TrainEventBus.Instance.MessagePrinted += OnMessagePrinted;
     }
 
-	private void OnNewTaskAssiged(Task task)
+	private void OnMessagePrinted(NoteContent content)
 	{
 		animationPlayer.Play("Print");
     }

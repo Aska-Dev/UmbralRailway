@@ -38,7 +38,7 @@ public partial class InteractionComponent : Component
     public void OnRayHit(bool isLookingAt)
     {
         IsLookedAt = isLookingAt;
-        if (isLookingAt)
+        if (isLookingAt && IsActive)
         {
             UiEventBus.Instance.ShowInteractionText(InteractionMessage);
         }

@@ -12,4 +12,7 @@ public partial class TrainStation : SpecificLocation
 
     [Export]
     public required StationData Data { get; set; }
+
+    [Export]
+    public bool HasTurntable { get; set; } = false;
 } 

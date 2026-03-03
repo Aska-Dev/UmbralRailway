@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="Task" format=3 uid="uid://dmysbv8sjvbej"]
+
+[ext_resource type="Script" uid="uid://bbko2j1tfd7xy" path="res://types/Tasks/Requirements/SendingSignalRequirement.cs" id="1_aeo3v"]
+[ext_resource type="Resource" uid="uid://bvs5ctccgn56n" path="res://Tasks/2/2.ReachingCargoStation.tres" id="1_q3rt5"]
+[ext_resource type="Script" uid="uid://c036x6he6x83d" path="res://types/NoteContent.cs" id="1_rimsg"]
+[ext_resource type="Script" uid="uid://d6q3ktbb61ut" path="res://types/Tasks/TaskBranch.cs" id="2_q3rt5"]
+[ext_resource type="Script" uid="uid://cup42k3nm3hdn" path="res://types/Tasks/AssignmentActions/PrintMessageOnAssignment.cs" id="2_x75ab"]
+[ext_resource type="Script" uid="uid://h07fi318gbhv" path="res://types/Tasks/Task.cs" id="4_x75ab"]
+
+[sub_resource type="Resource" id="Resource_35orr"]
+script = ExtResource("1_rimsg")
+Title = "2 - Checking Power Supply"
+Content = "Please follow the following steps precisely:
+
+1. Connect to the station network with the Computer
+2. Use the Computer to gather the power supply status
+3. Send the corresponding signal back to Mission Control:
+	- Signal [10-04], if all Power Generators are working
+	- Signal [10-07], if at least one Generator failed
+
+For questions refer to the manuals."
+metadata/_custom_type_script = "uid://c036x6he6x83d"
+
+[sub_resource type="Resource" id="Resource_c1xit"]
+script = ExtResource("2_x75ab")
+Message = SubResource("Resource_35orr")
+metadata/_custom_type_script = "uid://cup42k3nm3hdn"
+
+[sub_resource type="Resource" id="Resource_53d1b"]
+script = ExtResource("1_aeo3v")
+RequiredSignal = 4
+metadata/_custom_type_script = "uid://bbko2j1tfd7xy"
+
+[sub_resource type="Resource" id="Resource_we11e"]
+script = ExtResource("2_q3rt5")
+NextTask = ExtResource("1_q3rt5")
+Requirements = [SubResource("Resource_53d1b")]
+metadata/_custom_type_script = "uid://d6q3ktbb61ut"
+
+[sub_resource type="Resource" id="Resource_rimsg"]
+script = ExtResource("1_aeo3v")
+RequiredSignal = 7
+metadata/_custom_type_script = "uid://bbko2j1tfd7xy"
+
+[sub_resource type="Resource" id="Resource_x75ab"]
+script = ExtResource("2_q3rt5")
+NextTask = ExtResource("1_q3rt5")
+Requirements = [SubResource("Resource_rimsg")]
+metadata/_custom_type_script = "uid://d6q3ktbb61ut"
+
+[resource]
+script = ExtResource("4_x75ab")
+Branches = [SubResource("Resource_we11e"), SubResource("Resource_x75ab")]
+AssignmentActions = [SubResource("Resource_c1xit")]
+metadata/_custom_type_script = "uid://h07fi318gbhv"

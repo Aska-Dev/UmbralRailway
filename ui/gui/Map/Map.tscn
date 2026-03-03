@@ -1,0 +1,332 @@
+[gd_scene format=3 uid="uid://dxfg6tbbijow7"]
+
+[ext_resource type="Script" uid="uid://cv03dw4srxaxd" path="res://ui/gui/Map/MapUi.cs" id="1_2aoiw"]
+[ext_resource type="Texture2D" uid="uid://cxh2nyqshceqw" path="res://assets/textures/paper.jpg" id="1_sfr68"]
+[ext_resource type="Texture2D" uid="uid://ckhkgmkn85jy0" path="res://assets/map-icons/map.png" id="2_h6j64"]
+[ext_resource type="Texture2D" uid="uid://crghhvlrwlyfg" path="res://assets/map-icons/cargo.png" id="3_8qnou"]
+[ext_resource type="Texture2D" uid="uid://bbepr6jwkkdld" path="res://assets/map-icons/turntable2.png" id="4_s0fsb"]
+[ext_resource type="Texture2D" uid="uid://b7uhkf0ohbye4" path="res://assets/map-icons/radio.png" id="5_w1bs8"]
+[ext_resource type="Texture2D" uid="uid://bpwnqyx8m2yvu" path="res://assets/map-icons/habitat.png" id="6_vsrmx"]
+[ext_resource type="Texture2D" uid="uid://b55as6pcusujd" path="res://assets/map-icons/forge.png" id="7_l4spt"]
+[ext_resource type="Texture2D" uid="uid://civvxhwkq4pcu" path="res://assets/map-icons/compass.png" id="8_n6dl7"]
+
+[sub_resource type="SystemFont" id="SystemFont_h6j64"]
+font_names = PackedStringArray("Consolas")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qnou"]
+font = SubResource("SystemFont_h6j64")
+font_size = 150
+outline_size = 60
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_tu4yg"]
+font_names = PackedStringArray("Consolas")
+font_weight = 550
+msdf_pixel_range = 32
+oversampling = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_sfr68"]
+font = SubResource("SystemFont_tu4yg")
+font_size = 18
+font_color = Color(0.8175213, 0.8175213, 0.81752115, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_2aoiw"]
+font_names = PackedStringArray("Bradley Hand ITC")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rj6lg"]
+font = SubResource("SystemFont_2aoiw")
+font_size = 150
+font_color = Color(1, 0, 0, 1)
+outline_size = 10
+outline_color = Color(1, 0, 0, 1)
+
+[node name="Map" type="Control" unique_id=554352059]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2aoiw")
+
+[node name="Base" type="TextureRect" parent="." unique_id=836510932]
+modulate = Color(0.98562807, 0.9417773, 0.87384564, 1)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_sfr68")
+expand_mode = 1
+
+[node name="Legend" type="GridContainer" parent="." unique_id=1293436772]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 196.0
+offset_right = 1020.0
+offset_bottom = 196.0
+
+[node name="Turntable Symbol" type="Sprite2D" parent="Legend" unique_id=624879012]
+position = Vector2(-9.536743e-07, -0.99999994)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("4_s0fsb")
+
+[node name="Label" type="Label" parent="Legend/Turntable Symbol" unique_id=2066818188]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -370.28577
+offset_right = 840.38086
+offset_bottom = -219.28577
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "= Turntable"
+label_settings = SubResource("LabelSettings_8qnou")
+vertical_alignment = 1
+
+[node name="Stations" type="Sprite2D" parent="Legend" unique_id=1011591195]
+position = Vector2(0, 40)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_h6j64")
+
+[node name="Label" type="Label" parent="Legend/Stations" unique_id=1645928077]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -370.28577
+offset_right = 840.38086
+offset_bottom = -219.28577
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "= Stations"
+label_settings = SubResource("LabelSettings_8qnou")
+vertical_alignment = 1
+
+[node name="HowToExit" type="Panel" parent="." unique_id=838662860]
+layout_mode = 0
+offset_left = 397.5
+offset_top = 612.0
+offset_right = 754.5
+offset_bottom = 637.0
+
+[node name="HowToCloseIt" type="Label" parent="HowToExit" unique_id=55778039]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.5
+offset_top = -25.0
+offset_right = 178.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press [ESC] or [F] to close"
+label_settings = SubResource("LabelSettings_sfr68")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Connectors" type="Line2D" parent="." unique_id=1334688765]
+points = PackedVector2Array(119, 81, 229, 81)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Connector2" type="Line2D" parent="Connectors" unique_id=1039977642]
+position = Vector2(171, 0)
+points = PackedVector2Array(119, 81, 185, 81)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Connector3" type="Line2D" parent="Connectors" unique_id=1911059407]
+position = Vector2(283, 0)
+points = PackedVector2Array(119, 81, 185, 81)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Connector" type="Line2D" parent="Connectors" unique_id=1928143248]
+position = Vector2(411, 0)
+points = PackedVector2Array(119, 81, 229, 81)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Connector4" type="Line2D" parent="Connectors" unique_id=1043277185]
+position = Vector2(0, 4)
+points = PackedVector2Array(379, 100, 379, 200)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Connector5" type="Line2D" parent="Connectors" unique_id=1579227889]
+position = Vector2(0, 184)
+points = PackedVector2Array(379, 100, 379, 200)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="GehennaStation" type="Sprite2D" parent="." unique_id=759274025]
+position = Vector2(90.00003, 81.000015)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_h6j64")
+
+[node name="Label" type="Label" parent="GehennaStation" unique_id=1137910525]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -874.5
+offset_top = -207.0
+offset_right = 362.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Gehenna Station"
+label_settings = SubResource("LabelSettings_8qnou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CargoStation" type="Sprite2D" parent="." unique_id=781021371]
+position = Vector2(260, 81)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_8qnou")
+
+[node name="Label" type="Label" parent="CargoStation" unique_id=974912421]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -874.5
+offset_top = -207.0
+offset_right = 362.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Cargo Station"
+label_settings = SubResource("LabelSettings_8qnou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JunctionCargoVestaEcho" type="Sprite2D" parent="." unique_id=2002127128]
+position = Vector2(379.00003, 81.00001)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("4_s0fsb")
+
+[node name="GatewayStation" type="Sprite2D" parent="." unique_id=2004284700]
+position = Vector2(499.00003, 81.00001)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_h6j64")
+
+[node name="Label" type="Label" parent="GatewayStation" unique_id=578836494]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -874.5
+offset_top = -207.0
+offset_right = 362.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Gateway Station"
+label_settings = SubResource("LabelSettings_8qnou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Echo Station" type="Sprite2D" parent="." unique_id=1933660726]
+position = Vector2(672, 81)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_w1bs8")
+
+[node name="Label" type="Label" parent="Echo Station" unique_id=1039200376]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -874.5
+offset_top = -207.0
+offset_right = 362.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Echo Station"
+label_settings = SubResource("LabelSettings_8qnou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Vesta Station" type="Sprite2D" parent="." unique_id=1419064401]
+position = Vector2(379, 234)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_vsrmx")
+
+[node name="Label" type="Label" parent="Vesta Station" unique_id=1520490961]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -874.5
+offset_top = -207.0
+offset_right = 362.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Vesta Station"
+label_settings = SubResource("LabelSettings_8qnou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notes" type="Label" parent="Vesta Station" unique_id=1157453593]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -962.0
+offset_right = 1131.0
+offset_bottom = -392.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -0.15124536
+text = "
+<- has Turntable
+"
+label_settings = SubResource("LabelSettings_rj6lg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Steelforge Station" type="Sprite2D" parent="." unique_id=694989940]
+position = Vector2(379, 414)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_l4spt")
+
+[node name="Label" type="Label" parent="Steelforge Station" unique_id=1054149838]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -874.5
+offset_top = -207.0
+offset_right = 362.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Steelforge Station"
+label_settings = SubResource("LabelSettings_8qnou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Compass" type="Sprite2D" parent="." unique_id=446852705]
+position = Vector2(1063, 89)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_n6dl7")

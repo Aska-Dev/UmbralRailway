@@ -22,6 +22,8 @@ public partial class Computer : StaticBody3D, IEntity
 
         PlayerEventBus.Instance.UpdateEquippedItem += OnPlayerItemEquipped;
         GlobalEventBus.Instance.ComputerAnimationTriggered += PlayAnimation;
+
+        TrainEventBus.Instance.PowerChanged += OnPowerChanged;
     }
 
     public void OnPlayerItemEquipped(Item? item)
@@ -72,6 +74,11 @@ public partial class Computer : StaticBody3D, IEntity
             UiEventBus.Instance.ToggleComputerScreen(true);
             PlayerEventBus.Instance.SetPlayerInputEnabled(false);
         }
+    }
+
+    private void OnPowerChanged(bool hasPower)
+    {
+        Components.Get<InteractionComponent>().IsActive = hasPower;
     }
 
     private void PlayAnimation(string animationName)

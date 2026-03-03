@@ -82,5 +82,16 @@ public partial class TrainEventBus : Node
     [Signal]
     public delegate void SignalSendedEventHandler(int signal);
     public void SendSignal(int signal) => EmitSignal(SignalName.SignalSended, signal);
+
+    // Power events
+    [Signal]
+    public delegate void PowerChangedEventHandler(bool hasPower);
+    public void ChangePowerState(bool hasPower) => EmitSignal(SignalName.PowerChanged, hasPower);
+
+    // Printer events
+    [Signal]
+    public delegate void MessagePrintedEventHandler(NoteContent content);
+    public void PrintMessage(NoteContent content) => EmitSignal(SignalName.MessagePrinted, content);
+
 }
 

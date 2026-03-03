@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Task" format=3 uid="uid://bvs5ctccgn56n"]
+
+[ext_resource type="Script" uid="uid://h07fi318gbhv" path="res://types/Tasks/Task.cs" id="1_8j7o7"]
+
+[resource]
+script = ExtResource("1_8j7o7")
+metadata/_custom_type_script = "uid://h07fi318gbhv"
