@@ -50,5 +50,18 @@ public partial class UiEventBus : Node
     [Signal]
     public delegate void MapToggledEventHandler(bool isOpen);
     public void ToggleMap(bool isOpen) => EmitSignal(SignalName.MapToggled, isOpen);
+
+    // Dialog Events
+    [Signal]
+    public delegate void DialogTextChangedEventHandler(string text);
+    public void SetDialogText(string text) => EmitSignal(SignalName.DialogTextChanged, text);
+    
+    [Signal]
+    public delegate void DialogNextLineShownEventHandler();
+    public void ShowNextDialogLine() => EmitSignal(SignalName.DialogNextLineShown);
+    
+    [Signal]
+    public delegate void DialogFinishedEventHandler();
+    public void FinishDialog() => EmitSignal(SignalName.DialogFinished);
 }
 

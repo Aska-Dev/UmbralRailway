@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bmfktjulnp2pp"]
+
+[ext_resource type="AudioStream" uid="uid://c8bxetr60ddya" path="res://assets/sounds/computer/radioBeep.mp3" id="1_awost"]
+
+[node name="RadioBeepPlayer" type="AudioStreamPlayer" unique_id=1319867777]
+stream = ExtResource("1_awost")
+volume_db = -1.0
+autoplay = true

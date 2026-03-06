@@ -10,13 +10,13 @@
 [sub_resource type="Resource" id="Resource_35orr"]
 script = ExtResource("1_rimsg")
 Title = "2 - Checking Power Supply"
-Content = "Please follow the following steps precisely:
+Content = "Please follow these steps precisely:
 
-1. Connect to the station network with the Computer
-2. Use the Computer to gather the power supply status
+1. Connect to the Gehenna Stations local network with the Computer
+2. Use the Computer to gather the power supply status with the \"status\" command
 3. Send the corresponding signal back to Mission Control:
-	- Signal [10-04], if all Power Generators are working
-	- Signal [10-07], if at least one Generator failed
+- Signal [10-4], if all Power Generators are working
+- Signal [10-7], if at least one Generator failed
 
 For questions refer to the manuals."
 metadata/_custom_type_script = "uid://c036x6he6x83d"

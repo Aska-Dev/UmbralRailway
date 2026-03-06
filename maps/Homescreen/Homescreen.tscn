@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://bg8vog7dbigqu" path="res://ui/gui/ComputerScreen/ComputerScreen.tscn" id="31_xo72d"]
 [ext_resource type="PackedScene" uid="uid://d2cxb3bl87v82" path="res://environment/QuestNote/CurrentTaskNote.tscn" id="32_8yv8u"]
 [ext_resource type="Texture2D" uid="uid://bxkk4eiro5xx2" path="res://assets/textures/wood_2.png" id="33_o1slo"]
+[ext_resource type="Script" uid="uid://crjvex7hcl7eh" path="res://maps/Homescreen/StartGameLabel.cs" id="33_pbob5"]
+[ext_resource type="Script" uid="uid://c3v53nmmm28wu" path="res://maps/Homescreen/Menu.cs" id="33_w410a"]
 [ext_resource type="Texture2D" uid="uid://f514crfmo1sk" path="res://assets/textures/metal_mesh_1.png" id="34_n1lo2"]
 [ext_resource type="PackedScene" uid="uid://5dcy162gmr8e" path="res://environment/TrackSelector/TrackSelector.tscn" id="35_w2eas"]
 [ext_resource type="PackedScene" uid="uid://iq04sxfikson" path="res://environment/First Aid Cabinet/MedCabinet.tscn" id="36_dcwd6"]
@@ -141,10 +143,30 @@ size = Vector3(0.05, 2, 2)
 [sub_resource type="ViewportTexture" id="ViewportTexture_xo72d"]
 viewport_path = NodePath("SubViewport/T41/Screen/SubViewport")
 
+[sub_resource type="SystemFont" id="SystemFont_8ffi0"]
+font_names = PackedStringArray("Consolas")
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbob5"]
+font = SubResource("SystemFont_8ffi0")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_w410a"]
+font = SubResource("SystemFont_8ffi0")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_ymue4"]
+font = SubResource("SystemFont_8ffi0")
+font_size = 32
+
 [node name="SubViewportContainer" type="SubViewportContainer" unique_id=1092472193]
 material = SubResource("ShaderMaterial_pbob5")
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=429288507]
 handle_input_locally = false
@@ -506,3 +528,94 @@ transform = Transform3D(0.011582303, 0, -0.04864, 0, 0.049999997, 0, 0.04864, 0,
 texture = SubResource("ViewportTexture_xo72d")
 
 [node name="GUI" type="CanvasLayer" parent="SubViewport" unique_id=1987080650]
+
+[node name="Menu" type="Control" parent="SubViewport" unique_id=1451107293]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 199.0
+offset_right = -1152.0
+offset_bottom = -449.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("33_w410a")
+
+[node name="StartGameLabel" type="Label" parent="SubViewport/Menu" unique_id=1594282898]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 76.0
+offset_right = 341.0
+offset_bottom = 125.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Start Game"
+label_settings = SubResource("LabelSettings_pbob5")
+script = ExtResource("33_pbob5")
+
+[node name="Line" type="Line2D" parent="SubViewport/Menu/StartGameLabel" unique_id=868040930]
+visible = false
+position = Vector2(-7, 51)
+points = PackedVector2Array(7, -1, 279, -1)
+width = 5.0
+
+[node name="SettingsLabel" type="Label" parent="SubViewport/Menu" unique_id=860398016]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 198.0
+offset_right = 341.0
+offset_bottom = 247.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_pbob5")
+script = ExtResource("33_pbob5")
+
+[node name="Line" type="Line2D" parent="SubViewport/Menu/SettingsLabel" unique_id=1656221473]
+visible = false
+position = Vector2(-7, 54)
+points = PackedVector2Array(4, 0, 227, 0)
+width = 5.0
+
+[node name="ExitGame" type="Label" parent="SubViewport/Menu" unique_id=345695319]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 314.0
+offset_right = 341.0
+offset_bottom = 363.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Exit Game"
+label_settings = SubResource("LabelSettings_pbob5")
+script = ExtResource("33_pbob5")
+
+[node name="Line" type="Line2D" parent="SubViewport/Menu/ExitGame" unique_id=857877218]
+visible = false
+position = Vector2(-7, 51)
+points = PackedVector2Array(5, 0, 248, 0)
+width = 5.0
+
+[node name="Title" type="Label" parent="SubViewport/Menu" unique_id=1607785434]
+layout_mode = 0
+offset_left = 126.0
+offset_top = -149.0
+offset_right = 830.0
+offset_bottom = -66.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Umbral   Railway"
+label_settings = SubResource("LabelSettings_w410a")
+
+[node name="Title" type="Label" parent="SubViewport/Menu/Title" unique_id=196881213]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 79.0
+offset_right = 1046.0
+offset_bottom = 162.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Through the Darkness"
+label_settings = SubResource("LabelSettings_ymue4")
+
+[connection signal="HomemenuLabelClicked" from="SubViewport/Menu/ExitGame" to="SubViewport/Menu" method="ExitGame"]
+[connection signal="mouse_entered" from="SubViewport/Menu/ExitGame" to="SubViewport/Menu/ExitGame" method="OnMouseEntered"]

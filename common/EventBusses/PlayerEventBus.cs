@@ -10,10 +10,14 @@ public partial class PlayerEventBus : Node
         Instance = this;
     }
 
-    // Change Player Input Status
+    // Player Events
     [Signal]
     public delegate void ChangePlayerInputStatusEventHandler(bool isEnabled);
     public void SetPlayerInputEnabled(bool isEnabled) => EmitSignal(SignalName.ChangePlayerInputStatus, isEnabled);
+    [Signal]
+    public delegate void PlayerInteractabilityChangedEventHandler(bool isInteractable);
+    public void SetPlayerInteractable(bool isInteractable) => EmitSignal(SignalName.PlayerInteractabilityChanged, isInteractable);
+
 
     // Item Events
     [Signal]

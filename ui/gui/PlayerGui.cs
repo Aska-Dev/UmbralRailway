@@ -2,11 +2,14 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 
 
 public partial class PlayerGui : Control
 {
+    private const float DialogTypingSpeed = 18;
+
     private Label interactionMessageLabel = null!;
     private Label hintLabel = null!;
 

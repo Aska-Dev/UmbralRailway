@@ -13,6 +13,11 @@ public partial class InteractionRayComponent : Component
 
     public override void _PhysicsProcess(double delta)
     {
+        if(!_isActive)
+        {
+            return;
+        }
+
         if (Ray.IsColliding() && Ray.GetCollider() is IEntity entity)
         {
             var interactionComponent = entity.Components.Get<InteractionComponent>();

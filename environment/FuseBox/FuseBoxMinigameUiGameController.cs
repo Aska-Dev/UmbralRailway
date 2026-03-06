@@ -57,8 +57,6 @@ public partial class FuseBoxMinigameUiGameController : Control
 
     public void MoveSelectionPanel(Vector2 direction)
     {
-        GD.Print("Moving selection panel: " + direction);
-
         Vector2 newPosition = selectionPanel.Position + direction;
 
         newPosition.X = Mathf.Clamp(newPosition.X, 0, maxX);

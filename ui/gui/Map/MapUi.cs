@@ -16,6 +16,8 @@ public partial class MapUi : Control
         {
             UiEventBus.Instance.ToggleMap(false);
             PlayerEventBus.Instance.SetPlayerInputEnabled(true);
+
+            GetViewport().SetInputAsHandled();
         }
     }
 }

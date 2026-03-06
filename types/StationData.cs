@@ -12,7 +12,5 @@ public partial class StationData : Resource
 
     [Export(PropertyHint.Range, "0,3,")] public int WorkingPowerGenerators { get; set; } = 0;
 
-    [Export(PropertyHint.MultilineText)] public string LatestLog { get; set; } = string.Empty;
-
     [Export] public StationService[] Services { get; set; } = [];
 }

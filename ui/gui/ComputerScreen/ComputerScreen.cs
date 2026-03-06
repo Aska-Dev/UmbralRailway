@@ -90,9 +90,6 @@ public partial class ComputerScreen : Control
 			case "read":
 				Read();
 				break;
-			case "logs":
-				Logs();
-				break;
 			case "sysinfo":
 				SysInfo();
 				break;
@@ -123,7 +120,7 @@ public partial class ComputerScreen : Control
 	{
 		if(currentLocation is TrainStation station)
 		{
-			return $"Connected to station network: {station.Name} (Id: {station.Id})\n\nAvailable commands:\n\nstatus - Get station status\nlogs - Read latest station log";
+			return $"Connected to station network: {station.Name} (Id: {station.Id})\n\nAvailable commands:\n\nstatus - Get station status";
 		}
 
 		return "";
@@ -224,25 +221,12 @@ public partial class ComputerScreen : Control
         }
     }
 
-	private void Logs()
-	{
-		if(currentLocation is TrainStation station && computerData.IsConnectedToNetwork)
-		{
-			var logContent = station.Data.LatestLog;
-			PrintLine(logContent);
-        }
-		else
-		{
-			PrintLine("Please connect to a station network first.");
-        }
-    }
-
 	private void SysInfo()
 	{
 		var info = $"SYSTEM INFORMATION\n" +
 			"--------------------------------------------------\n" +
 			$"MODEL: T-41-CCC\n" +
-			$"SERIAL: 017-0001\n" +
+			$"SERIAL: 171-004\n" +
 			"--------------------------------------------------\n" +
 			$"GENERATOR: [ACTIVE]\n" +
 			$"LIFE SUPPORT SYSTEMS: [ACTIVE]\n" +

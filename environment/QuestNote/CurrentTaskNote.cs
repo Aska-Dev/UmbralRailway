@@ -4,7 +4,6 @@ using System;
 public partial class CurrentTaskNote : StaticBody3D, IEntity
 {
 	public ComponentList Components { get; set; } = null!;
-
 	private NoteContent? contentCache = null;
 
     public override void _Ready()

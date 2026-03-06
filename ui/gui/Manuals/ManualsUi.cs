@@ -36,6 +36,8 @@ public partial class ManualsUi : Control
             UiEventBus.Instance.ToggleManuals(false);
             PlayerEventBus.Instance.SetPlayerInputEnabled(true);
             Input.MouseMode = Input.MouseModeEnum.Captured;
+
+            GetViewport().SetInputAsHandled();
         }
     }
 

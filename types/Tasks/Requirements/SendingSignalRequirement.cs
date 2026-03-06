@@ -19,6 +19,8 @@ public partial class SendingSignalRequirement : TaskRequirement
 
     private void OnSignalSent(int signal)
     {
+        GD.Print($"Signal sent: {signal}. Required signal: {RequiredSignal}.");
+
         if (signal == RequiredSignal)
         {
             Complete();

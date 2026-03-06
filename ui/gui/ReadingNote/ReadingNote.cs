@@ -23,6 +23,8 @@ public partial class ReadingNote : Control
         {
             UiEventBus.Instance.ToggleNoteReading(false);
             PlayerEventBus.Instance.SetPlayerInputEnabled(true);
+
+            GetViewport().SetInputAsHandled();
         }
     }
 

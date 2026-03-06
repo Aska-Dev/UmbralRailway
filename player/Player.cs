@@ -18,6 +18,8 @@ public partial class Player : CharacterBody3D, IEntity
     private Node3D pivot = null!;
     private Camera3D camera = null!;
 
+    private bool menuesActivable = true;
+
     public override void _Ready()
     {
         Components = new ComponentList(this);
@@ -33,6 +35,9 @@ public partial class Player : CharacterBody3D, IEntity
         PlayerEventBus.Instance.ItemRemoved += OnItemRemoved;
         PlayerEventBus.Instance.PickedUpDiskFromComputer += PickUpDiskFromComputer;
         PlayerEventBus.Instance.PlayerCameraSetToCurrent += () => camera.Current = true;
+       
+        UiEventBus.Instance.DialogTextChanged += OnDialogSet;
+        UiEventBus.Instance.DialogFinished += OnDialogFinished;
     }
 
     public override void _Input(InputEvent @event)
@@ -53,7 +58,7 @@ public partial class Player : CharacterBody3D, IEntity
             camera.Rotation = clampedRotation;
         }
 
-        if(@event.IsActionPressed(Inputs.Inventory))
+        if(@event.IsActionPressed(Inputs.Inventory) && menuesActivable)
         {
             UiEventBus.Instance.ToggleInventory(true);
         }
@@ -125,6 +130,18 @@ public partial class Player : CharacterBody3D, IEntity
         {
             UiEventBus.Instance.ShowHintText(string.Empty);
         };
+    }
+
+    private void OnDialogSet(string dialogText)
+    {
+        menuesActivable = false;
+        Components.Get<InteractionRayComponent>()!.SetActive(false);
+    }
+
+    private void OnDialogFinished()
+    {
+        menuesActivable = true;
+        Components.Get<InteractionRayComponent>()!.SetActive(true);
     }
 
     private void PickUpDiskFromComputer()

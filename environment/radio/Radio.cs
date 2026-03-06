@@ -8,7 +8,9 @@ public partial class Radio : Node3D
     public override void _Ready()
 	{
 		light = GetNode<OmniLight3D>("Light");
-		UpdateLight(true);
+
+		UiEventBus.Instance.DialogTextChanged += _ => UpdateLight(true);
+        UiEventBus.Instance.DialogFinished += () => UpdateLight(false);
     }
 
 	private void UpdateLight(bool lightStatus)

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dtkqixtxs5rbd"]
+
+[ext_resource type="AudioStream" uid="uid://bcuswykgeavb" path="res://VoiceLines/MissionControl/MissionControl0.mp3" id="1_ly0ri"]
+[ext_resource type="Script" uid="uid://ck6inpt2mt42w" path="res://types/VoiceLinePlayer.cs" id="2_xq3fi"]
+
+[sub_resource type="Animation" id="Animation_xq3fi"]
+resource_name = "Play"
+length = 63.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(13.5, 25, 38, 51),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"NextLine"
+}, {
+"args": [],
+"method": &"NextLine"
+}, {
+"args": [],
+"method": &"NextLine"
+}, {
+"args": [],
+"method": &"NextLine"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s8ktw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8ktw"]
+_data = {
+&"Play": SubResource("Animation_xq3fi"),
+&"RESET": SubResource("Animation_s8ktw")
+}
+
+[node name="MissionControl0" type="AudioStreamPlayer" unique_id=1370163807]
+stream = ExtResource("1_ly0ri")
+volume_db = -5.0
+script = ExtResource("2_xq3fi")
+VoiceLineText = "Hello and welcome to our programm. I hope your journey went smoothly. Unsuprisingly there were some problems with logistics - so we don't have your files yet. Let's see... train number 171004, hm?//Well... let's just call you 171 for now.  I don't know how much they told you down at Earth, but we're basically just here to clean up their mess. Nothing fancy, but it pays good at least.//Icarus abandoned this research facility after the project failed to meet expectations. Still, a lot of the equipment can be used for other experiments at other facilities. After all, it's expensive to shoot things to the moon.//As a train operator you will drive this train through the deserted site and, well, do whatever needs to be done. If you have any questions you should find a manual somewhere, that explains everything you need to know.//Now, go on and make yourself familiar with... well, everything and just drive forward to reach Gehenna Station. We will contact you again when you reached it. Good luck. Mission Control out."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=406763356]
+libraries/ = SubResource("AnimationLibrary_s8ktw")
+
+[connection signal="finished" from="." to="." method="OnDialogFinished"]
